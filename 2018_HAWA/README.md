@@ -11,7 +11,7 @@ Park, Barum. 2018. “How Are We Apart? Continuity and Change in the Structure o
 - Codes:
 	1) All codes are written in `R`
 	2) codes are organized in order
-	3) codes might depend on previous codes (e.g., you have to run `GRM\_Data\_Management.R` first to be able to run `GRM_Fitting\_&\_Analysis.R`)
+	3) codes might depend on previous codes (e.g., you have to run `GRM_Data_Management.R` first to be able to run `GRM_Fitting_&_Analysis.R`)
 	4) each code has a `"Working Directory Here!"` string. Replace this string with the folder in which you have unzipped the replication materials
 	5) most of the codes contain also a `"Path to directory where figures should be placed"` string. Replace this string with the path where you want the figures to be saved.
 	6) Running the code for fitting the GRM models is extremely time consuming (most models take approximately 5 days to run on a Westmere x86_64 2.67GHz machine). 
