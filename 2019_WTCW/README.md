@@ -1,4 +1,4 @@
-### Was There a Culture War? Polititcal Polarization and Secular Trends in U.S. Public Opinion
+### Was There a Culture War? Partisan Polarization and Secular Trends in U.S. Public Opinion
 
 Last update on 12/21/2018 by Barum Park
 
