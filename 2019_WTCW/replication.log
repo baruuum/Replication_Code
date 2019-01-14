@@ -1,0 +1,3556 @@
+Creating Directory ~/data/ into /scratch/bp1094/secular_rep/
+Creating Directory ~/plots/ into /scratch/bp1094/secular_rep/
+Creating Directory ~/stan/ into /scratch/bp1094/secular_rep/
+Creating Directory ~/tables/ into /scratch/bp1094/secular_rep/
+
+List of Defined Functions :
+
+gen.summary
+drop.empty.facets
+gen.stan.summary
+gen.agg.trends
+inv.logit
+gen.posti
+gen.se.lincom
+
+(stored in object fun.names)
+
+
+Preparing NES Data --------------------
+Loading Cumulative Datafile ...
+Loading 2016 NES ...
+Appending 2016 NES to Cumulative File ...
+Recoding and Renaming Variables ...
+Saving Data ...
+Saving Variable Information ...
+Done!
+
+
+
+Preparing GSS Data --------------------
+Loading GSS Data ...
+Recoding and Renaming Variables ...
+
+Combining variables: 
+
+abdefect
+abnomore
+abhlth
+abpoor
+abrape
+absingle
+abany
+
+into one summary measure
+
+Combining variables: 
+
+suicide1
+suicide2
+suicide3
+suicide4
+
+into one summary measure
+Saving Data ...
+Saving Variable Information ...
+Done!
+
+
+Generating Dataset of %Liberal Responses ----------
+Loading NES and GSS data ...
+Working on NES Data ...
+Working on GSS Data ...
+Combining and Saving Data ...
+Done!
+
+
+
+Plotting Descriptive Trends ----------
+Plotting Economic Issues ...
+Plotting Civil Rights Issues ...
+Plotting Moral Issues (Subset) ...
+Plotting Moral Issues (All Issues) ...
+Plotting Foreign Policy / Security Issues ...
+Done!
+
+
+
+Compiling STAN Models ---------------
+Creating "~/models/" directory into /scratch/bp1094/secular_rep/stan/
+Compiling Normal-Normal Model ...
+Compiling Beta-Normal Model ...
+Done!
+
+
+
+Start Fitting Models -------------
+Crearing subfolder named domain_1 into /scratch/bp1094/secular_rep/stan/
+Fitting Normal-Normal model with linear time trend ( Domain = 1 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 31.13 seconds (Warm-up)
+               13.49 seconds (Sampling)
+               44.62 seconds (Total)
+
+
+ Elapsed Time: 31.68 seconds (Warm-up)
+               16.95 seconds (Sampling)
+               48.63 seconds (Total)
+
+
+ Elapsed Time: 31.86 seconds (Warm-up)
+               16.15 seconds (Sampling)
+               48.01 seconds (Total)
+
+
+ Elapsed Time: 33.08 seconds (Warm-up)
+               16.9 seconds (Sampling)
+               49.98 seconds (Total)
+
+
+ Elapsed Time: 31.76 seconds (Warm-up)
+               16.81 seconds (Sampling)
+               48.57 seconds (Total)
+
+
+ Elapsed Time: 33.72 seconds (Warm-up)
+               16.74 seconds (Sampling)
+               50.46 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file linear.nn.txt
+Fitting Beta-Normal model with linear time trend ( Domain = 1 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 191.82 seconds (Warm-up)
+               105 seconds (Sampling)
+               296.82 seconds (Total)
+
+
+ Elapsed Time: 192.1 seconds (Warm-up)
+               104.95 seconds (Sampling)
+               297.05 seconds (Total)
+
+
+ Elapsed Time: 199.31 seconds (Warm-up)
+               102.77 seconds (Sampling)
+               302.08 seconds (Total)
+
+
+ Elapsed Time: 199.73 seconds (Warm-up)
+               104.75 seconds (Sampling)
+               304.48 seconds (Total)
+
+
+ Elapsed Time: 203.99 seconds (Warm-up)
+               105.25 seconds (Sampling)
+               309.24 seconds (Total)
+
+
+ Elapsed Time: 212.67 seconds (Warm-up)
+               104.51 seconds (Sampling)
+               317.18 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file linear.bn.txt
+Fitting Normal-Normal model with quad time trend ( Domain = 1 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 36.5 seconds (Warm-up)
+               17.95 seconds (Sampling)
+               54.45 seconds (Total)
+
+
+ Elapsed Time: 38.3 seconds (Warm-up)
+               19.42 seconds (Sampling)
+               57.72 seconds (Total)
+
+
+ Elapsed Time: 36.84 seconds (Warm-up)
+               19.3 seconds (Sampling)
+               56.14 seconds (Total)
+
+
+ Elapsed Time: 37.84 seconds (Warm-up)
+               19.64 seconds (Sampling)
+               57.48 seconds (Total)
+
+
+ Elapsed Time: 38.25 seconds (Warm-up)
+               19.51 seconds (Sampling)
+               57.76 seconds (Total)
+
+
+ Elapsed Time: 38.05 seconds (Warm-up)
+               19.62 seconds (Sampling)
+               57.67 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file quad.nn.txt
+Fitting Beta-Normal model with quad time trend ( Domain = 1 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[181] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[14] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[109] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[40] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 209.17 seconds (Warm-up)
+               107.4 seconds (Sampling)
+               316.57 seconds (Total)
+
+
+ Elapsed Time: 217.69 seconds (Warm-up)
+               107.97 seconds (Sampling)
+               325.66 seconds (Total)
+
+
+ Elapsed Time: 218.63 seconds (Warm-up)
+               107.34 seconds (Sampling)
+               325.97 seconds (Total)
+
+
+ Elapsed Time: 225.69 seconds (Warm-up)
+               107.38 seconds (Sampling)
+               333.07 seconds (Total)
+
+
+ Elapsed Time: 234.94 seconds (Warm-up)
+               107.68 seconds (Sampling)
+               342.62 seconds (Total)
+
+
+ Elapsed Time: 241.33 seconds (Warm-up)
+               107.28 seconds (Sampling)
+               348.61 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file quad.bn.txt
+Fitting Normal-Normal model with cubic time trend ( Domain = 1 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 50.19 seconds (Warm-up)
+               24.32 seconds (Sampling)
+               74.51 seconds (Total)
+
+
+ Elapsed Time: 50.01 seconds (Warm-up)
+               24.48 seconds (Sampling)
+               74.49 seconds (Total)
+
+
+ Elapsed Time: 51.53 seconds (Warm-up)
+               24.33 seconds (Sampling)
+               75.86 seconds (Total)
+
+
+ Elapsed Time: 53 seconds (Warm-up)
+               24.26 seconds (Sampling)
+               77.26 seconds (Total)
+
+
+ Elapsed Time: 52.63 seconds (Warm-up)
+               24.13 seconds (Sampling)
+               76.76 seconds (Total)
+
+
+ Elapsed Time: 54.16 seconds (Warm-up)
+               24.21 seconds (Sampling)
+               78.37 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file cubic.nn.txt
+Fitting Beta-Normal model with cubic time trend ( Domain = 1 )
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[12] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[40] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[12] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[59] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[40] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[124] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[58] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[26] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[26] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[14] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[40] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[12] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[27] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[110] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[12] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[12] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[14] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[14] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[13] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[58] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 231.62 seconds (Warm-up)
+               112.7 seconds (Sampling)
+               344.32 seconds (Total)
+
+
+ Elapsed Time: 246.7 seconds (Warm-up)
+               111.91 seconds (Sampling)
+               358.61 seconds (Total)
+
+
+ Elapsed Time: 248.63 seconds (Warm-up)
+               111.93 seconds (Sampling)
+               360.56 seconds (Total)
+
+
+ Elapsed Time: 251.21 seconds (Warm-up)
+               111.99 seconds (Sampling)
+               363.2 seconds (Total)
+
+
+ Elapsed Time: 263.32 seconds (Warm-up)
+               112.12 seconds (Sampling)
+               375.44 seconds (Total)
+
+
+ Elapsed Time: 265.75 seconds (Warm-up)
+               112.21 seconds (Sampling)
+               377.96 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file cubic.bn.txt
+Crearing subfolder named domain_2 into /scratch/bp1094/secular_rep/stan/
+Fitting Normal-Normal model with linear time trend ( Domain = 2 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 45.2 seconds (Warm-up)
+               17.02 seconds (Sampling)
+               62.22 seconds (Total)
+
+
+ Elapsed Time: 42.34 seconds (Warm-up)
+               18.57 seconds (Sampling)
+               60.91 seconds (Total)
+
+
+ Elapsed Time: 45.72 seconds (Warm-up)
+               17.07 seconds (Sampling)
+               62.79 seconds (Total)
+
+
+ Elapsed Time: 43.09 seconds (Warm-up)
+               18.65 seconds (Sampling)
+               61.74 seconds (Total)
+
+
+ Elapsed Time: 45.55 seconds (Warm-up)
+               17.18 seconds (Sampling)
+               62.73 seconds (Total)
+
+
+ Elapsed Time: 43.83 seconds (Warm-up)
+               17.58 seconds (Sampling)
+               61.41 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file linear.nn.txt
+Fitting Beta-Normal model with linear time trend ( Domain = 2 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[496] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 238.72 seconds (Warm-up)
+               111.54 seconds (Sampling)
+               350.26 seconds (Total)
+
+
+ Elapsed Time: 239.54 seconds (Warm-up)
+               110.9 seconds (Sampling)
+               350.44 seconds (Total)
+
+
+ Elapsed Time: 248.69 seconds (Warm-up)
+               111.79 seconds (Sampling)
+               360.48 seconds (Total)
+
+
+ Elapsed Time: 248.25 seconds (Warm-up)
+               114.44 seconds (Sampling)
+               362.69 seconds (Total)
+
+
+ Elapsed Time: 257.15 seconds (Warm-up)
+               117.53 seconds (Sampling)
+               374.68 seconds (Total)
+
+
+ Elapsed Time: 263.26 seconds (Warm-up)
+               111.61 seconds (Sampling)
+               374.87 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file linear.bn.txt
+Fitting Normal-Normal model with quad time trend ( Domain = 2 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 50.88 seconds (Warm-up)
+               19.98 seconds (Sampling)
+
+               70.86 seconds (Total)
+ Elapsed Time: 52.53 seconds (Warm-up)
+
+               20.01 seconds (Sampling)
+               72.54 seconds (Total)
+
+
+ Elapsed Time: 52.02 seconds (Warm-up)
+               20.12 seconds (Sampling)
+               72.14 seconds (Total)
+
+
+ Elapsed Time: 54.38 seconds (Warm-up)
+               20.02 seconds (Sampling)
+               74.4 seconds (Total)
+
+
+ Elapsed Time: 56.1 seconds (Warm-up)
+               20.32 seconds (Sampling)
+               76.42 seconds (Total)
+
+
+ Elapsed Time: 54.23 seconds (Warm-up)
+               35.65 seconds (Sampling)
+               89.88 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file quad.nn.txt
+Fitting Beta-Normal model with quad time trend ( Domain = 2 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 270.26 seconds (Warm-up)
+               112.09 seconds (Sampling)
+               382.35 seconds (Total)
+
+
+ Elapsed Time: 279.97 seconds (Warm-up)
+               110.52 seconds (Sampling)
+               390.49 seconds (Total)
+
+
+ Elapsed Time: 275.64 seconds (Warm-up)
+               110.36 seconds (Sampling)
+               386 seconds (Total)
+
+
+ Elapsed Time: 283.39 seconds (Warm-up)
+               110.17 seconds (Sampling)
+               393.56 seconds (Total)
+
+
+ Elapsed Time: 289.92 seconds (Warm-up)
+               109.81 seconds (Sampling)
+               399.73 seconds (Total)
+
+
+ Elapsed Time: 294.33 seconds (Warm-up)
+               111.2 seconds (Sampling)
+               405.53 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file quad.bn.txt
+Fitting Normal-Normal model with cubic time trend ( Domain = 2 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 75.79 seconds (Warm-up)
+               24.96 seconds (Sampling)
+               100.75 seconds (Total)
+
+
+ Elapsed Time: 78.98 seconds (Warm-up)
+               24.95 seconds (Sampling)
+               103.93 seconds (Total)
+
+
+ Elapsed Time: 79.13 seconds (Warm-up)
+               25.98 seconds (Sampling)
+               105.11 seconds (Total)
+
+
+ Elapsed Time: 83.37 seconds (Warm-up)
+               26.46 seconds (Sampling)
+               109.83 seconds (Total)
+
+
+ Elapsed Time: 81.55 seconds (Warm-up)
+               36.95 seconds (Sampling)
+               118.5 seconds (Total)
+
+
+ Elapsed Time: 81.27 seconds (Warm-up)
+               50.17 seconds (Sampling)
+               131.44 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file cubic.nn.txt
+Fitting Beta-Normal model with cubic time trend ( Domain = 2 )
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[110] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[370] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[192] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[108] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[128] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[109] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[167] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[167] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[43] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[91] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[91] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[68] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[308] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[433] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[108] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[107] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[127] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[240] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[109] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[108] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[332] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[126] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[158] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[127] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[110] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[128] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[157] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[108] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[128] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[158] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[110] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[157] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[169] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[157] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[68] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[397] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[108] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[108] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[180] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[128] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[192] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[169] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[128] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[397] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[43] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[240] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[127] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[192] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[127] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[345] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[108] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[110] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[109] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[128] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[192] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[109] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[108] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[110] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[127] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[109] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[109] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[81] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[192] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[368] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[108] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[60] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[192] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[76] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[34] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[52] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[9] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[25] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 298 seconds (Warm-up)
+               114.81 seconds (Sampling)
+               412.81 seconds (Total)
+
+
+ Elapsed Time: 318.73 seconds (Warm-up)
+               108.54 seconds (Sampling)
+               427.27 seconds (Total)
+
+
+ Elapsed Time: 318.72 seconds (Warm-up)
+               107.4 seconds (Sampling)
+               426.12 seconds (Total)
+
+
+ Elapsed Time: 310.95 seconds (Warm-up)
+               116.98 seconds (Sampling)
+               427.93 seconds (Total)
+
+
+ Elapsed Time: 322.04 seconds (Warm-up)
+               109.16 seconds (Sampling)
+               431.2 seconds (Total)
+
+
+ Elapsed Time: 313.57 seconds (Warm-up)
+               212.47 seconds (Sampling)
+               526.04 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file cubic.bn.txt
+Crearing subfolder named domain_3 into /scratch/bp1094/secular_rep/stan/
+Fitting Normal-Normal model with linear time trend ( Domain = 3 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 174.08 seconds (Warm-up)
+               78.19 seconds (Sampling)
+               252.27 seconds (Total)
+
+
+ Elapsed Time: 166.33 seconds (Warm-up)
+               105.35 seconds (Sampling)
+               271.68 seconds (Total)
+
+
+ Elapsed Time: 182.5 seconds (Warm-up)
+               98.55 seconds (Sampling)
+               281.05 seconds (Total)
+
+
+ Elapsed Time: 177.65 seconds (Warm-up)
+               107.34 seconds (Sampling)
+               284.99 seconds (Total)
+
+
+ Elapsed Time: 173.85 seconds (Warm-up)
+               110.98 seconds (Sampling)
+               284.83 seconds (Total)
+
+
+ Elapsed Time: 181.65 seconds (Warm-up)
+               106.92 seconds (Sampling)
+               288.57 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file linear.nn.txt
+Fitting Beta-Normal model with linear time trend ( Domain = 3 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 1271.46 seconds (Warm-up)
+               426.31 seconds (Sampling)
+               1697.77 seconds (Total)
+
+
+ Elapsed Time: 1088.16 seconds (Warm-up)
+               713.62 seconds (Sampling)
+               1801.78 seconds (Total)
+
+
+ Elapsed Time: 1066.76 seconds (Warm-up)
+               755.36 seconds (Sampling)
+               1822.12 seconds (Total)
+
+
+ Elapsed Time: 1183.85 seconds (Warm-up)
+               641.06 seconds (Sampling)
+               1824.91 seconds (Total)
+
+
+ Elapsed Time: 1112.33 seconds (Warm-up)
+               716.88 seconds (Sampling)
+               1829.21 seconds (Total)
+
+
+ Elapsed Time: 1170.17 seconds (Warm-up)
+               766.87 seconds (Sampling)
+               1937.04 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file linear.bn.txt
+Fitting Normal-Normal model with quad time trend ( Domain = 3 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 209.7 seconds (Warm-up)
+               123.32 seconds (Sampling)
+               333.02 seconds (Total)
+
+
+ Elapsed Time: 228.08 seconds (Warm-up)
+               122.99 seconds (Sampling)
+               351.07 seconds (Total)
+
+
+ Elapsed Time: 228.73 seconds (Warm-up)
+               123.39 seconds (Sampling)
+               352.12 seconds (Total)
+
+
+ Elapsed Time: 230.82 seconds (Warm-up)
+               123.64 seconds (Sampling)
+               354.46 seconds (Total)
+
+
+ Elapsed Time: 248.16 seconds (Warm-up)
+               122.86 seconds (Sampling)
+               371.02 seconds (Total)
+
+
+ Elapsed Time: 250.77 seconds (Warm-up)
+               122.72 seconds (Sampling)
+               373.49 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file quad.nn.txt
+Fitting Beta-Normal model with quad time trend ( Domain = 3 )
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[67] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[113] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[632] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[126] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[67] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1353] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[83] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[591] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[113] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[84] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[186] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[150] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[328] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[592] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[445] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[124] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 1250.77 seconds (Warm-up)
+               699.58 seconds (Sampling)
+               1950.35 seconds (Total)
+
+
+ Elapsed Time: 1317.15 seconds (Warm-up)
+               698.9 seconds (Sampling)
+               2016.05 seconds (Total)
+
+
+ Elapsed Time: 1309.25 seconds (Warm-up)
+               705.61 seconds (Sampling)
+               2014.86 seconds (Total)
+
+
+ Elapsed Time: 1334.05 seconds (Warm-up)
+               698.66 seconds (Sampling)
+               2032.71 seconds (Total)
+
+
+ Elapsed Time: 1319.55 seconds (Warm-up)
+               711.94 seconds (Sampling)
+               2031.49 seconds (Total)
+
+
+ Elapsed Time: 1359.51 seconds (Warm-up)
+               709.22 seconds (Sampling)
+               2068.73 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file quad.bn.txt
+Fitting Normal-Normal model with cubic time trend ( Domain = 3 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 285.75 seconds (Warm-up)
+               138.14 seconds (Sampling)
+               423.89 seconds (Total)
+
+
+ Elapsed Time: 288.45 seconds (Warm-up)
+               139.9 seconds (Sampling)
+               428.35 seconds (Total)
+
+
+ Elapsed Time: 290.54 seconds (Warm-up)
+               140.3 seconds (Sampling)
+               430.84 seconds (Total)
+
+
+ Elapsed Time: 292.31 seconds (Warm-up)
+               140.17 seconds (Sampling)
+               432.48 seconds (Total)
+
+
+ Elapsed Time: 293.61 seconds (Warm-up)
+               138.28 seconds (Sampling)
+               431.89 seconds (Total)
+
+
+ Elapsed Time: 307.05 seconds (Warm-up)
+               138.16 seconds (Sampling)
+               445.21 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file cubic.nn.txt
+Fitting Beta-Normal model with cubic time trend ( Domain = 3 )
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[621] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[66] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[67] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[234] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[198] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[112] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[65] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[66] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[125] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[65] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[65] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[65] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[66] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[84] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[186] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[531] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[126] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[65] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[16] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[262] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[65] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[149] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[262] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[252] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[221] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[530] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[198] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[83] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[299] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[113] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[113] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[16] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[800] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[150] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[185] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[358] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[67] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[33] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[66] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[234] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[860] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[65] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[801] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[83] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[150] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[67] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[32] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[84] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[17] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[66] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[84] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[293] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[33] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[49] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[234] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[474] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[64] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[67] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1140] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 1236.96 seconds (Warm-up)
+               713.42 seconds (Sampling)
+               1950.38 seconds (Total)
+
+
+ Elapsed Time: 1264.01 seconds (Warm-up)
+               712.75 seconds (Sampling)
+               1976.76 seconds (Total)
+
+
+ Elapsed Time: 1399.81 seconds (Warm-up)
+               710.26 seconds (Sampling)
+               2110.07 seconds (Total)
+
+
+ Elapsed Time: 1404.83 seconds (Warm-up)
+               710.72 seconds (Sampling)
+               2115.55 seconds (Total)
+
+
+ Elapsed Time: 1417.31 seconds (Warm-up)
+               709.93 seconds (Sampling)
+               2127.24 seconds (Total)
+
+
+ Elapsed Time: 1430.98 seconds (Warm-up)
+               709.32 seconds (Sampling)
+               2140.3 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file cubic.bn.txt
+Crearing subfolder named domain_4 into /scratch/bp1094/secular_rep/stan/
+Fitting Normal-Normal model with linear time trend ( Domain = 4 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 10.59 seconds (Warm-up)
+               3.83 seconds (Sampling)
+               14.42 seconds (Total)
+
+
+ Elapsed Time: 10.54 seconds (Warm-up)
+               5.05 seconds (Sampling)
+               15.59 seconds (Total)
+
+
+ Elapsed Time: 11.44 seconds (Warm-up)
+               5.62 seconds (Sampling)
+               17.06 seconds (Total)
+
+
+ Elapsed Time: 11.19 seconds (Warm-up)
+               5.39 seconds (Sampling)
+               16.58 seconds (Total)
+
+
+ Elapsed Time: 10.33 seconds (Warm-up)
+               5.66 seconds (Sampling)
+               15.99 seconds (Total)
+
+
+ Elapsed Time: 11.67 seconds (Warm-up)
+               5.43 seconds (Sampling)
+               17.1 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file linear.nn.txt
+Fitting Beta-Normal model with linear time trend ( Domain = 4 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.01 seconds
+1000 transitions using 10 leapfrog steps per transition would take 100 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 44.73 seconds (Warm-up)
+               17.29 seconds (Sampling)
+               62.02 seconds (Total)
+
+
+ Elapsed Time: 40.52 seconds (Warm-up)
+               22.67 seconds (Sampling)
+               63.19 seconds (Total)
+
+
+ Elapsed Time: 41.93 seconds (Warm-up)
+               25.48 seconds (Sampling)
+               67.41 seconds (Total)
+
+
+ Elapsed Time: 43.59 seconds (Warm-up)
+               26.01 seconds (Sampling)
+               69.6 seconds (Total)
+
+
+ Elapsed Time: 43.15 seconds (Warm-up)
+               25.84 seconds (Sampling)
+               68.99 seconds (Total)
+
+
+ Elapsed Time: 40.17 seconds (Warm-up)
+               28.69 seconds (Sampling)
+               68.86 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file linear.bn.txt
+Fitting Normal-Normal model with quad time trend ( Domain = 4 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0.02 seconds
+1000 transitions using 10 leapfrog steps per transition would take 200 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 16.82 seconds (Warm-up)
+               7.36 seconds (Sampling)
+               24.18 seconds (Total)
+
+
+ Elapsed Time: 16.93 seconds (Warm-up)
+               7.3 seconds (Sampling)
+               24.23 seconds (Total)
+
+
+ Elapsed Time: 16.38 seconds (Warm-up)
+               7.37 seconds (Sampling)
+               23.75 seconds (Total)
+
+
+ Elapsed Time: 16.55 seconds (Warm-up)
+               7.33 seconds (Sampling)
+               23.88 seconds (Total)
+
+
+ Elapsed Time: 16.59 seconds (Warm-up)
+               7.29 seconds (Sampling)
+               23.88 seconds (Total)
+
+
+ Elapsed Time: 17.21 seconds (Warm-up)
+               7.41 seconds (Sampling)
+               24.62 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file quad.nn.txt
+Fitting Beta-Normal model with quad time trend ( Domain = 4 )
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[123] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 57.9 seconds (Warm-up)
+               30.19 seconds (Sampling)
+               88.09 seconds (Total)
+
+
+ Elapsed Time: 57.59 seconds (Warm-up)
+               29.19 seconds (Sampling)
+               86.78 seconds (Total)
+
+
+ Elapsed Time: 58.4 seconds (Warm-up)
+               30.14 seconds (Sampling)
+               88.54 seconds (Total)
+
+
+ Elapsed Time: 56.6 seconds (Warm-up)
+               30.24 seconds (Sampling)
+               86.84 seconds (Total)
+
+
+ Elapsed Time: 58.71 seconds (Warm-up)
+               29.08 seconds (Sampling)
+               87.79 seconds (Total)
+
+
+ Elapsed Time: 59.73 seconds (Warm-up)
+               30.27 seconds (Sampling)
+               90 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file quad.bn.txt
+Done!
+
+Warning messages:
+1: There were 29 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup 
+2: Examine the pairs() plot to diagnose sampling problems
+ 
+3: There were 10 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup 
+4: Examine the pairs() plot to diagnose sampling problems
+ 
+
+
+
+
+
+
+
+
+
+
+Checking convergence and divergent transitions for domain 1 ... 
+
+Rhat and effective sample sizes seem to be okay for all models.
+
+No divergent transitions found for models in domain 1
+
+
+
+
+
+
+
+
+
+
+Checking convergence and divergent transitions for domain 2 ... 
+
+Rhat and effective sample sizes seem to be okay for all models.
+
+No divergent transitions found for models in domain 2
+
+
+
+
+
+
+
+
+
+
+Checking convergence and divergent transitions for domain 3 ... 
+
+Rhat and effective sample sizes seem to be okay for all models.
+
+No divergent transitions found for models in domain 3
+
+
+
+
+
+
+
+
+
+
+Checking convergence and divergent transitions for domain 4 ... 
+
+Rhat and effective sample sizes seem to be okay for all models.
+
+Some of the chains for the following models resulted divergent transitions (Domain 4) :
+
+	linear.nn(29),  quad.nn(10)
+
+(Number in parentheses indicate # of div. transitions across all chains)
+Refitting models with divergent transitions ...
+(Models with low Neff or high Rhat are not refitted !)
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 53.51 seconds (Warm-up)
+               11.11 seconds (Sampling)
+               64.62 seconds (Total)
+
+
+ Elapsed Time: 54.69 seconds (Warm-up)
+               11.37 seconds (Sampling)
+               66.06 seconds (Total)
+
+
+ Elapsed Time: 54.54 seconds (Warm-up)
+               11.39 seconds (Sampling)
+               65.93 seconds (Total)
+
+
+ Elapsed Time: 53.85 seconds (Warm-up)
+               13.19 seconds (Sampling)
+               67.04 seconds (Total)
+
+
+ Elapsed Time: 55.85 seconds (Warm-up)
+               18.16 seconds (Sampling)
+               74.01 seconds (Total)
+
+
+ Elapsed Time: 58.3 seconds (Warm-up)
+               18.79 seconds (Sampling)
+               77.09 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file linear.nn.refit.txt
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 74.79 seconds (Warm-up)
+               14.45 seconds (Sampling)
+               89.24 seconds (Total)
+
+
+ Elapsed Time: 80.39 seconds (Warm-up)
+               14.52 seconds (Sampling)
+               94.91 seconds (Total)
+
+
+ Elapsed Time: 82.41 seconds (Warm-up)
+               14.42 seconds (Sampling)
+               96.83 seconds (Total)
+
+
+ Elapsed Time: 81.33 seconds (Warm-up)
+               16.77 seconds (Sampling)
+               98.1 seconds (Total)
+
+
+ Elapsed Time: 77.24 seconds (Warm-up)
+               26 seconds (Sampling)
+               103.24 seconds (Total)
+
+
+ Elapsed Time: 78.49 seconds (Warm-up)
+               23.97 seconds (Sampling)
+               102.46 seconds (Total)
+
+
+
+Done!
+Model summaries are found in file quad.nn.refit.txt
+
+
+
+Comparing Models with LOOIC and WAIC ...
+
+
+Working on domain 1 ...
+Comparing all fitted models ...
+WAIC & LOOIC ------------------
+          elpd_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic    se_waic
+quad.bn       0.0     732.3      18.4         69.3     4.8   -1464.7    36.7
+cubic.bn     -2.5     729.8      17.9         75.2     5.1   -1459.6    35.9
+linear.bn    -4.0     728.3      17.8         59.0     3.9   -1456.7    35.6
+quad.nn     -23.3     709.1      18.8         71.8     5.0   -1418.1    37.6
+cubic.nn    -26.1     706.3      18.4         78.1     5.3   -1412.5    36.8
+linear.nn   -29.1     703.2      18.3         61.7     4.2   -1406.4    36.6
+          elpd_diff elpd_loo se_elpd_loo p_loo   se_p_loo looic   se_looic
+quad.bn       0.0     730.9     18.5        70.7     5.1  -1461.8    37.0 
+linear.bn    -2.9     728.1     17.9        59.3     4.0  -1456.1    35.9 
+cubic.bn     -3.6     727.3     18.1        77.7     5.4  -1454.7    36.3 
+quad.nn     -24.0     707.0     19.0        73.9     5.2  -1413.9    38.0 
+cubic.nn    -27.7     703.2     18.5        81.2     5.5  -1406.4    37.1 
+linear.nn   -28.5     702.5     18.4        62.4     4.3  -1404.9    36.9 
+
+
+Working on domain 2 ...
+Comparing all fitted models ...
+WAIC & LOOIC ------------------
+          elpd_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic    se_waic
+cubic.bn      0.0     941.9      19.6         85.3     5.2   -1883.9    39.2
+quad.bn     -16.1     925.9      19.2         75.0     4.9   -1851.7    38.3
+cubic.nn    -29.6     912.3      20.0         88.4     5.6   -1824.6    40.0
+linear.bn   -31.1     910.8      19.7         61.6     4.3   -1821.7    39.3
+quad.nn     -51.1     890.8      19.5         76.6     5.1   -1781.7    39.0
+linear.nn   -70.5     871.5      19.8         63.5     4.6   -1742.9    39.6
+          elpd_diff elpd_loo se_elpd_loo p_loo   se_p_loo looic   se_looic
+cubic.bn      0.0     937.9     19.9        89.3     5.8  -1875.9    39.8 
+quad.bn     -13.7     924.2     19.4        76.6     5.3  -1848.4    38.8 
+linear.bn   -26.5     911.4     19.8        61.0     4.4  -1822.8    39.6 
+cubic.nn    -30.6     907.3     20.4        93.4     6.2  -1814.6    40.8 
+quad.nn     -49.4     888.6     19.7        78.8     5.5  -1777.2    39.4 
+linear.nn   -66.3     871.7     20.0        63.3     4.8  -1743.3    40.0 
+
+
+Working on domain 3 ...
+Comparing all fitted models ...
+WAIC & LOOIC ------------------
+          elpd_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic    se_waic
+cubic.bn      0.0    3819.5      39.1        228.2     9.3   -7638.9    78.2
+cubic.nn    -72.7    3746.8      41.1        240.1    10.2   -7493.5    82.2
+quad.bn     -93.3    3726.2      38.1        199.6     8.1   -7452.4    76.2
+quad.nn    -180.1    3639.4      40.0        211.0     9.1   -7278.7    79.9
+linear.bn  -311.1    3508.4      38.0        162.2     6.7   -7016.7    76.0
+linear.nn  -439.4    3380.0      38.8        170.8     7.6   -6760.1    77.5
+          elpd_diff elpd_loo se_elpd_loo p_loo   se_p_loo looic   se_looic
+cubic.bn      0.0    3823.2     39.5       224.5    10.0  -7646.4    79.1 
+cubic.nn    -74.5    3748.7     41.5       238.2    10.8  -7497.4    82.9 
+quad.bn     -90.7    3732.5     38.4       193.3     8.6  -7465.0    76.9 
+quad.nn    -179.0    3644.1     40.3       206.2     9.7  -7288.3    80.7 
+linear.bn  -305.5    3517.7     38.2       152.9     7.0  -7035.4    76.4 
+linear.nn  -435.1    3388.1     39.0       162.7     7.9  -6776.2    78.0 
+
+
+Working on domain 4 ...
+Comparing all fitted models ...
+WAIC & LOOIC ------------------
+          elpd_diff elpd_waic se_elpd_waic p_waic se_p_waic waic   se_waic
+quad.bn      0.0     140.7      10.1         27.6    3.9    -281.4   20.3 
+linear.bn   -1.3     139.4      11.7         21.8    4.0    -278.8   23.3 
+quad.nn     -2.2     138.5      10.0         27.0    3.7    -277.0   20.0 
+linear.nn   -2.8     137.9      11.3         20.9    3.3    -275.8   22.5 
+          elpd_diff elpd_loo se_elpd_loo p_loo  se_p_loo looic  se_looic
+linear.bn    0.0     138.4     11.9        22.7    4.3   -276.8   23.9  
+quad.bn     -0.1     138.3     10.5        30.0    4.4   -276.7   21.0  
+linear.nn   -1.4     137.0     11.4        21.7    3.4   -274.1   22.8  
+quad.nn     -2.1     136.3     10.3        29.3    4.1   -272.5   20.7  
+There were 50 or more warnings (use warnings() to see the first 50)
+
+
+Working on domain 1 ------------------
+Setting up the data ...
+Extracting Posterior Samples ...
+Generating Trend Data ...
+Plotting posterior predictive distribution ...
+
+
+Working on domain 2 ------------------
+Setting up the data ...
+Extracting Posterior Samples ...
+Generating Trend Data ...
+Plotting posterior predictive distribution ...
+
+
+Working on domain 3 ------------------
+Setting up the data ...
+Extracting Posterior Samples ...
+Generating Trend Data ...
+Plotting posterior predictive distribution ...
+
+
+Working on domain 4 ------------------
+Setting up the data ...
+Extracting Posterior Samples ...
+Generating Trend Data ...
+Plotting posterior predictive distribution ...
+
+
+Summarizing Convergence Statistics --------------------
+
+Summary of Diagnostics :
+     domain  min.neff mean.neff max.rhat n.div max.depth
+[1,]      1  808.1181  5891.082 1.011630     0         7
+[2,]      2  319.9368  3974.643 1.017140     0         8
+[3,]      3  315.3365  5905.589 1.020364     0         8
+[4,]      4 1638.5415  5700.134 1.006547     0         8
+Generating LaTex Table of Model Coefficients ...
+
+
+ Start Plotting Results ------------------------
+Plotting Linear Trends ...
+Plotting Non-linear Trends ...
+Creating Directory ~/appendix/ into /scratch/bp1094/secular_rep/
+
+
+Refitting Econ Model (Appendix) ...
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+Rejecting initial value:
+  Error evaluating the log probability at the initial value.
+Exception: beta_lpdf: Second shape parameter[1] is 0, but must be > 0!  (in 'model4ba779172887_Beta_Normal' at line 63)
+
+
+Gradient evaluation took 0 seconds
+1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
+Adjust your expectations accordingly!
+
+
+
+ Elapsed Time: 364.71 seconds (Warm-up)
+               136.99 seconds (Sampling)
+               501.7 seconds (Total)
+
+
+ Elapsed Time: 396.42 seconds (Warm-up)
+               272.5 seconds (Sampling)
+               668.92 seconds (Total)
+
+
+ Elapsed Time: 426.04 seconds (Warm-up)
+               271.17 seconds (Sampling)
+               697.21 seconds (Total)
+
+
+ Elapsed Time: 442.31 seconds (Warm-up)
+               269.23 seconds (Sampling)
+               711.54 seconds (Total)
+
+
+ Elapsed Time: 368.18 seconds (Warm-up)
+               382.49 seconds (Sampling)
+               750.67 seconds (Total)
+
+
+ Elapsed Time: 464.54 seconds (Warm-up)
+               523.87 seconds (Sampling)
+               988.41 seconds (Total)
+
+
+
+Plotting raw coefficients ...
+Plotting aggregate trends ...
+
+List of Defined Functions :
+
+gen.summary
+drop.empty.facets
+gen.stan.summary
+gen.agg.trends
+inv.logit
+gen.posti
+gen.se.lincom
+
+(stored in object fun.names)
+           Domain Rep. - Dem.
+1:       Economic  0.14430578
+2:   Civil Rights  0.10027820
+3:          Moral  0.05787680
+4: Foreign Policy  0.06770241
+           Domain Post. Prob.
+1:       Economic   0.9443333
+2:   Civil Rights   0.9323333
+3:          Moral   0.0000000
+4: Foreign Policy   0.3158333
+           Domain Post. Prob.
+1:       Economic  0.05566667
+2:   Civil Rights  0.06766667
+3:          Moral  1.00000000
+4: Foreign Policy  0.68416667
+           Domain Post. Prob.
+1:       Economic   0.7986667
+2:   Civil Rights   0.9950000
+3:          Moral   1.0000000
+4: Foreign Policy   0.7971667
+           Domain Post. Prob
+1:       Economic  0.6190000
+2:   Civil Rights  0.6328333
+3:          Moral  0.9998333
+4: Foreign Policy  0.7028333
+R version 3.4.2 (2017-09-28)
+Platform: x86_64-centos-linux-gnu (64-bit)
+Running under: CentOS Linux 7 (Core)
+
+Matrix products: default
+BLAS/LAPACK: /share/apps/intel/17.0.1/compilers_and_libraries_2017.1.132/linux/mkl/lib/intel64_lin/libmkl_rt.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8          LC_NUMERIC=C                 
+ [3] LC_TIME=en_US.UTF-8           LC_COLLATE=en_US.UTF-8       
+ [5] LC_MONETARY=en_US.UTF-8       LC_MESSAGES=en_US.UTF-8      
+ [7] LC_PAPER=en_US.UTF-8          LC_NAME=en_US.UTF-8          
+ [9] LC_ADDRESS=en_US.UTF-8        LC_TELEPHONE=en_US.UTF-8     
+[11] LC_MEASUREMENT=en_US.UTF-8    LC_IDENTIFICATION=en_US.UTF-8
+
+attached base packages:
+[1] parallel  methods   grid      stats     graphics  grDevices utils    
+[8] datasets  base     
+
+other attached packages:
+ [1] doParallel_1.0.11  iterators_1.0.9    foreach_1.4.4      xlsx_0.6.1        
+ [5] gridExtra_2.3      xtable_1.8-2       cowplot_0.9.2      survey_3.33-2     
+ [9] survival_2.42-4    Matrix_1.2-14      car_3.0-0          carData_3.0-1     
+[13] loo_2.0.0          rstan_2.17.3       StanHeaders_2.17.2 ggplot2_3.0.0     
+[17] dtplyr_0.0.2       data.table_1.10.5  dplyr_0.7.6       
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_0.2.4   reshape2_1.4.3     purrr_0.2.5        splines_3.4.2     
+ [5] rJava_0.9-9        haven_1.1.2        lattice_0.20-35    colorspace_1.3-2  
+ [9] stats4_3.4.2       rlang_0.2.1        pillar_1.2.3       foreign_0.8-70    
+[13] glue_1.2.0         withr_2.1.2        readxl_1.0.0       bindrcpp_0.2.2    
+[17] matrixStats_0.54.0 bindr_0.1.1        plyr_1.8.4         stringr_1.3.1     
+[21] munsell_0.5.0      gtable_0.2.0       cellranger_1.1.0   zip_1.0.0         
+[25] codetools_0.2-15   labeling_0.3       inline_0.3.15      rio_0.5.10        
+[29] forcats_0.3.0      curl_3.2           xlsxjars_0.6.1     Rcpp_0.12.17      
+[33] scales_0.5.0       abind_1.4-5        digest_0.6.15      hms_0.4.2         
+[37] stringi_1.2.3      openxlsx_4.1.0     tools_3.4.2        magrittr_1.5      
+[41] lazyeval_0.2.1     tibble_1.4.2       pkgconfig_2.0.1    assertthat_0.2.0  
+[45] R6_2.2.2           compiler_3.4.2    
