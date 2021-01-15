@@ -1,0 +1,787 @@
+Creating data directory ...
+Creating output directory ...
+Compiling C/C++ code ...
+Sourcing R functions ...
+
+Done!
+
+
+
+***** Setting up yearly data *****
+
+Checking setup and paths...
+
+
+Working on Male data ...
+
+Reading in raw data ...
+Dropping pre-1989 years ...
+Merging 'subject instructors' into a single occ category ...
+Collapsing Teacher's aids into Teachers, n.e.c category ...
+Saving recoded data ...
+Saving recoded data (NEC excluded) ...
+
+Generating normalizing weights ...
+Baseline year : 1989
+Saving weights for 'FullOccs' into data folder ...
+Saving weights for 'NoNEC' into data folder ...
+
+
+Working on Female data ...
+
+Reading in raw data ...
+Dropping pre-1989 years ...
+Merging 'subject instructors' into a single occ category ...
+Collapsing Teacher's aids into Teachers, n.e.c category ...
+Saving recoded data ...
+Saving recoded data (NEC excluded) ...
+
+Generating normalizing weights ...
+Baseline year : 1989
+Saving weights for 'FullOccs' into data folder ...
+Saving weights for 'NoNEC' into data folder ...
+
+
+Working on FullSamp data ...
+
+Reading in raw data ...
+Dropping pre-1989 years ...
+Merging 'subject instructors' into a single occ category ...
+Collapsing Teacher's aids into Teachers, n.e.c category ...
+Saving recoded data ...
+Saving recoded data (NEC excluded) ...
+
+Generating normalizing weights ...
+Baseline year : 1989
+Saving weights for 'FullOccs' into data folder ...
+Saving weights for 'NoNEC' into data folder ...
+
+Preparing OCC2000 data for analysis (NoNEC only) ...
+Dropping NEC occupations  ... 
+Aggregating and Calculating weights centered at year 2003 ...
+Saving aggregated data and weights ...
+
+Checking missing pattern (for NoNEC, FullSamp data) ...
+Saving data with occs appearing in all 5-year moving windows ...
+
+Creating dictionary for occupations and OCC1990 labels (NoNEC) ...
+Saving dictionary ...
+
+Done!
+
+
+
+***** Setting up three-period data *****
+Sample specification : FullSamp/NoNec/Weighted/Complete5
+
+Loading data ...
+Weighting data by normalizing weights ...
+Generating three-period data ... 
+
+Done!
+
+
+
+***** Summerizing FullSamp Data *****
+
+Loading yearly data and weights ...
+
+Plotting summary across all years ...
+File path: /scratch/bp1094/FnB/output/figures/Figure_E1.pdf
+Data path: /scratch/bp1094/FnB/output/data/Figure_E1.rds
+
+Done!
+
+
+
+***** Summarizing three-period data *****
+
+Loading data ...
+
+Summarizing in- and out-degrees ...
+
+Plotting histogram of in- and out-degrees ...
+File path : /scratch/bp1094/FnB/output/figures/Figure_2.pdf
+Data path : /scratch/bp1094/FnB/output/data/Figure_2.csv
+
+Summarizing transitions ...
+
+Plotting histogram of transition weights ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E2.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E2.csv
+
+Done!
+          used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1877386 100.3    3266554 174.5  3266554 174.5
+Vcells 6796407  51.9   22611201 172.6 28237329 215.5
+
+
+
+***** Fitting map equation to three-period data *****
+
+
+Fitting algorithm to period 1992-1996 ...
+Creating 9296 subdirectory into output/data/three_period/ ...
+Loading data ...
+Fitting algorithm ...
+Saving modules ...
+
+Fitting algorithm to period 2003-2007 ...
+Creating 0307 subdirectory into output/data/three_period/ ...
+Loading data ...
+Fitting algorithm ...
+Saving modules ...
+
+Fitting algorithm to period 2011-2015 ...
+Creating 1115 subdirectory into output/data/three_period/ ...
+Loading data ...
+Fitting algorithm ...
+Saving modules ...
+
+Done!
+
+
+
+***** Summarizing three-period results *****
+
+
+Summarizing modules of period 1992-1996 ...
+All warnings closness and eigenvector centrality related
+Saving module summary ...
+Creating module_summary subdirectory into /scratch/bp1094/FnB/output/data/three_period/9296 ...
+
+Summarizing modules of period 2003-2007 ...
+All warnings closness and eigenvector centrality related
+Saving module summary ...
+Creating module_summary subdirectory into /scratch/bp1094/FnB/output/data/three_period/0307 ...
+
+Summarizing modules of period 2011-2015 ...
+All warnings closness and eigenvector centrality related
+Saving module summary ...
+Creating module_summary subdirectory into /scratch/bp1094/FnB/output/data/three_period/1115 ...
+
+Done!
+
+
+
+***** Matching and plotting modules over three periods *****
+
+Reading in modules ...
+Calculating over-time overlap in modules ...
+
+Assigning new labels to modules ... 
+Matching modules forwards for period 1 ...
+No matching module with occupation share greater than 0.5 found for module(s) 1
+threshold reduced to 0.46
+Assigning new labels to non-matched modules ...
+Matching modules forwards for period 2 ...
+Assigning new labels to non-matched modules ...
+Matching modules backward for period 2 ...
+No matching module with occupation share greater than 0.5 found for module(s) 10, 23
+threshold reduced to 0.41, 0.44, respectively
+Matching modules backward for period 3 ...
+
+Saving relabeled modules ...
+
+Plotting over-time summary of three-period data (Figure 3) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_3.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_3.rds
+
+Done!
+
+
+
+***** Comparing modules with WG scheme *****
+
+Creating new dictionary occupation id dictionary ...
+Save new dictionary (WG classes added) ...
+Summarizing occupations within each period ...
+Generating crosstable of modules and W-G classes ...
+Transforming tables into LaTeX format ...
+
+Saving LaTeX tables ...
+File Path : /scratch/bp1094/FnB/output/tables/Table_2.txt
+File Path : /scratch/bp1094/FnB/output/tables/Table_D4_part1.txt
+File Path : /scratch/bp1094/FnB/output/tables/Table_D4_part2.txt
+File Path : /scratch/bp1094/FnB/output/tables/Table_D4_part3.txt
+
+Saving summary of all occupations by period and module...
+Data Path : /scratch/bp1094/FnB/output/tables/Table_D1_to_D3.csv
+
+Done!
+          used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1923927 102.8    3266554 174.5  3266554 174.5
+Vcells 7341941  56.1   22611201 172.6 28237329 215.5
+
+
+
+***** Fitting algorithm to moving windows of size 1, 3, 5 *****
+
+Creating moving_window subdirectory into /scratch/bp1094/FnB/data ...
+
+Fitting algorithm for NoNEC occupations on FullSamp ...
+
+Window size = 1 ...
+Reweighting by self-loops ...
+Done!
+Saving Results ...
+
+Window size = 3 ...
+Reweighting by self-loops ...
+Done!
+Saving Results ...
+
+Window size = 5 ...
+Reweighting by self-loops ...
+Done!
+Saving Results ...
+
+Fitting algorithm for FullOccs occupations on FullSamp ...
+
+Window size = 1 ...
+Done!
+Saving Results ...
+
+Window size = 3 ...
+Done!
+Saving Results ...
+
+Window size = 5 ...
+Done!
+Saving Results ...
+
+Fitting algorithm to NoNEC occupations on Male subpopulation ...
+
+Window size = 1 ...
+Done!
+Saving Results ...
+
+Window size = 3 ...
+Done!
+Saving Results ...
+
+Window size = 5 ...
+Done!
+Saving Results ...
+
+Fitting algorithm to NoNEC occupations on Female subpopulation ...
+
+Window size = 1 ...
+Done!
+Saving Results ...
+
+Window size = 3 ...
+Done!
+Saving Results ...
+
+Window size = 5 ...
+Done!
+Saving Results ...
+
+Fitting algorithm for NoNEC occupations appearing in all windows ...
+
+Window size = 1 ...
+Done!
+Saving Results ...
+
+Window size = 3 ...
+Done!
+Saving Results ...
+
+Window size = 5 ...
+Done!
+Saving Results ...
+
+Fitting algorithm for NoNEC occupations appearing in all windows ...
+
+Window size = 1 ...
+Done!
+Saving Results ...
+
+Window size = 3 ...
+Done!
+Saving Results ...
+
+Window size = 5 ...
+Done!
+Saving Results ...
+
+
+
+***** Summarizing moving window results *****
+
+Loading results ...
+
+Plotting number of modules over time (Figure E3) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E3.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E3.csv
+
+Plotting modularity over time (NoNEC, Figure E4) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E4.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E4.csv
+
+Plotting comparison with FullOccs(Figure E6) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E5.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E6.csv
+
+Plotting gender-specific trends in modularity (Figure C1) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_C1.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_C1.csv
+
+Plotting modularity trends using OCC2000 codes (Figure E7) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E7.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E7.csv
+
+Plotting modularity trends with reweighted ties (Figure E8) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E8.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E8.csv
+
+Done!
+
+
+
+***** Regression adjustments for modularity trends *****
+
+Loading in Data ...
+
+Plotting scheme-change adjustments (Figure E9) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E9.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E9.csv
+
+Done!
+          used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1942210 103.8    3266554 174.5  3266554 174.5
+Vcells 7988591  61.0   33427362 255.1 33549466 256.0
+
+
+
+***** Bootrstrapping modularity using 1000 resamples *****
+
+
+Bootstrapping modularity NoNEC/FullSamp/complete ...
+Loading data ...
+
+Window size = 1 ...
+
+Running bootstrap on non-complete occupations ...
+
+Analyzed Periods:
+1989-1989, 1990-1990, 1991-1991, 1992-1992, 1993-1993
+...
+2011-2011, 2012-2012, 2013-2013, 2014-2014, 2015-2015
+
+Start Fitting Algorithm ...
+Period 1989-1989 done!
+Period 1990-1990 done!
+Period 1991-1991 done!
+Period 1992-1992 done!
+Period 1993-1993 done!
+Period 1994-1994 done!
+Period 1995-1995 done!
+Period 1996-1996 done!
+Period 1997-1997 done!
+Period 1998-1998 done!
+Period 1999-1999 done!
+Period 2000-2000 done!
+Period 2001-2001 done!
+Period 2002-2002 done!
+Period 2003-2003 done!
+Period 2004-2004 done!
+Period 2005-2005 done!
+Period 2006-2006 done!
+Period 2007-2007 done!
+Period 2008-2008 done!
+Period 2009-2009 done!
+Period 2010-2010 done!
+Period 2011-2011 done!
+Period 2012-2012 done!
+Period 2013-2013 done!
+Period 2014-2014 done!
+Period 2015-2015 done!
+
+Running bootstrap on complete occupations ...
+
+Analyzed Periods:
+1989-1989, 1990-1990, 1991-1991, 1992-1992, 1993-1993
+...
+2011-2011, 2012-2012, 2013-2013, 2014-2014, 2015-2015
+
+Start Fitting Algorithm ...
+Period 1989-1989 done!
+Period 1990-1990 done!
+Period 1991-1991 done!
+Period 1992-1992 done!
+Period 1993-1993 done!
+Period 1994-1994 done!
+Period 1995-1995 done!
+Period 1996-1996 done!
+Period 1997-1997 done!
+Period 1998-1998 done!
+Period 1999-1999 done!
+Period 2000-2000 done!
+Period 2001-2001 done!
+Period 2002-2002 done!
+Period 2003-2003 done!
+Period 2004-2004 done!
+Period 2005-2005 done!
+Period 2006-2006 done!
+Period 2007-2007 done!
+Period 2008-2008 done!
+Period 2009-2009 done!
+Period 2010-2010 done!
+Period 2011-2011 done!
+Period 2012-2012 done!
+Period 2013-2013 done!
+Period 2014-2014 done!
+Period 2015-2015 done!
+Done!
+Saving Results ...
+
+Window size = 3 ...
+
+Running bootstrap on non-complete occupations ...
+
+Analyzed Periods:
+1989-1991, 1990-1992, 1991-1993, 1992-1994, 1993-1995
+...
+2009-2011, 2010-2012, 2011-2013, 2012-2014, 2013-2015
+
+Start Fitting Algorithm ...
+Period 1989-1991 done!
+Period 1990-1992 done!
+Period 1991-1993 done!
+Period 1992-1994 done!
+Period 1993-1995 done!
+Period 1994-1996 done!
+Period 1995-1997 done!
+Period 1996-1998 done!
+Period 1997-1999 done!
+Period 1998-2000 done!
+Period 1999-2001 done!
+Period 2000-2002 done!
+Period 2001-2003 done!
+Period 2002-2004 done!
+Period 2003-2005 done!
+Period 2004-2006 done!
+Period 2005-2007 done!
+Period 2006-2008 done!
+Period 2007-2009 done!
+Period 2008-2010 done!
+Period 2009-2011 done!
+Period 2010-2012 done!
+Period 2011-2013 done!
+Period 2012-2014 done!
+Period 2013-2015 done!
+
+Running bootstrap on complete occupations ...
+
+Analyzed Periods:
+1989-1991, 1990-1992, 1991-1993, 1992-1994, 1993-1995
+...
+2009-2011, 2010-2012, 2011-2013, 2012-2014, 2013-2015
+
+Start Fitting Algorithm ...
+Period 1989-1991 done!
+Period 1990-1992 done!
+Period 1991-1993 done!
+Period 1992-1994 done!
+Period 1993-1995 done!
+Period 1994-1996 done!
+Period 1995-1997 done!
+Period 1996-1998 done!
+Period 1997-1999 done!
+Period 1998-2000 done!
+Period 1999-2001 done!
+Period 2000-2002 done!
+Period 2001-2003 done!
+Period 2002-2004 done!
+Period 2003-2005 done!
+Period 2004-2006 done!
+Period 2005-2007 done!
+Period 2006-2008 done!
+Period 2007-2009 done!
+Period 2008-2010 done!
+Period 2009-2011 done!
+Period 2010-2012 done!
+Period 2011-2013 done!
+Period 2012-2014 done!
+Period 2013-2015 done!
+Done!
+Saving Results ...
+
+Window size = 5 ...
+
+Running bootstrap on non-complete occupations ...
+
+Analyzed Periods:
+1989-1993, 1990-1994, 1991-1995, 1992-1996, 1993-1997
+...
+2007-2011, 2008-2012, 2009-2013, 2010-2014, 2011-2015
+
+Start Fitting Algorithm ...
+Period 1989-1993 done!
+Period 1990-1994 done!
+Period 1991-1995 done!
+Period 1992-1996 done!
+Period 1993-1997 done!
+Period 1994-1998 done!
+Period 1995-1999 done!
+Period 1996-2000 done!
+Period 1997-2001 done!
+Period 1998-2002 done!
+Period 1999-2003 done!
+Period 2000-2004 done!
+Period 2001-2005 done!
+Period 2002-2006 done!
+Period 2003-2007 done!
+Period 2004-2008 done!
+Period 2005-2009 done!
+Period 2006-2010 done!
+Period 2007-2011 done!
+Period 2008-2012 done!
+Period 2009-2013 done!
+Period 2010-2014 done!
+Period 2011-2015 done!
+
+Running bootstrap on complete occupations ...
+
+Analyzed Periods:
+1989-1993, 1990-1994, 1991-1995, 1992-1996, 1993-1997
+...
+2007-2011, 2008-2012, 2009-2013, 2010-2014, 2011-2015
+
+Start Fitting Algorithm ...
+Period 1989-1993 done!
+Period 1990-1994 done!
+Period 1991-1995 done!
+Period 1992-1996 done!
+Period 1993-1997 done!
+Period 1994-1998 done!
+Period 1995-1999 done!
+Period 1996-2000 done!
+Period 1997-2001 done!
+Period 1998-2002 done!
+Period 1999-2003 done!
+Period 2000-2004 done!
+Period 2001-2005 done!
+Period 2002-2006 done!
+Period 2003-2007 done!
+Period 2004-2008 done!
+Period 2005-2009 done!
+Period 2006-2010 done!
+Period 2007-2011 done!
+Period 2008-2012 done!
+Period 2009-2013 done!
+Period 2010-2014 done!
+Period 2011-2015 done!
+Done!
+Saving Results ...
+
+Done!
+
+
+
+***** Summarizing bootrstrapping results *****
+
+Loading data ...
+
+Plotting trends in modularity together with boot-ci (Figure 4) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_4.pdf
+Data Path : /scratch/bp1094/FnB/output/figures/Figure_4.csv
+
+Plotting trends in modularity for all moving windows (complete and non-complete, Figure E5) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E5.pdf
+Data Path : /scratch/bp1094/FnB/output/figures/Figure_E5.csv
+
+Done!
+           used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  1952804 104.3    3266554 174.5  3266554 174.5
+Vcells 11489678  87.7   33427362 255.1 33549466 256.0
+
+
+
+***** Comparing modularity between infomap and WG-scheme *****
+
+Loading data ...
+Calculating modularity for WG-scheme (win1/NoNEC) ...
+Comparing modularity estimates with the infomap modules ...
+
+Plotting results of comparison (Figure 6a and 6b)
+File Path : /scratch/bp1094/FnB/output/figures/Figure_6a.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_6a.csv
+File Path : /scratch/bp1094/FnB/output/figures/Figure_6b.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_6b.csv
+
+Done!
+
+
+
+***** Comparision using adjusted mutual information *****
+
+Loading data ...
+
+Plotting adjusted mutual information (Figure 5) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_5.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_5.csv
+
+Plotting comaparison between adjusted and unadjusted MI (Figure E10) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E10.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E10.csv
+
+Done!
+           used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  1955569 104.5    3266554 174.5  3266554 174.5
+Vcells 12045603  92.0   33427362 255.1 33549466 256.0
+
+
+
+***** Fitting log-linear models to mobility data *****
+
+Loading data ...
+
+Start fitting log-linear models for each year ...
+Fitting models to data of year 1990 ...
+Fitting models to data of year 1992 ...
+Fitting models to data of year 1989 ...
+Fitting models to data of year 1994 ...
+Fitting models to data of year 1991 ...
+Fitting models to data of year 1996 ...
+Fitting models to data of year 1993 ...
+Fitting models to data of year 1995 ...
+Fitting models to data of year 1998 ...
+Fitting models to data of year 1997 ...
+Fitting models to data of year 1999 ...
+Fitting models to data of year 2000 ...
+Fitting models to data of year 2003 ...
+Fitting models to data of year 2002 ...
+Fitting models to data of year 2005 ...
+Fitting models to data of year 2001 ...
+Fitting models to data of year 2007 ...
+Fitting models to data of year 2004 ...
+Fitting models to data of year 2006 ...
+Fitting models to data of year 2014 ...
+Fitting models to data of year 2012 ...
+Fitting models to data of year 2008 ...
+Fitting models to data of year 2009 ...
+Fitting models to data of year 2011 ...
+Fitting models to data of year 2013 ...
+Fitting models to data of year 2015 ...
+Fitting models to data of year 2010 ...
+
+Plotting (scaled) BIC values for partitions (Figure 7) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_7.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_7.csv
+
+Plotting (scaled) BIC values for partitions (Figure E11) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E11.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E11.csv
+
+Done!
+           used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  1956975 104.6    3266554 174.5  3266554 174.5
+Vcells 11970882  91.4   33427362 255.1 33549466 256.0
+
+
+
+***** Analyzing skills requirements of ocupations *****
+
+Loading data ...
+
+Analyzing skill measures ...
+
+Plotting r-squared statistics (Figure 8a) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_8a.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_8a.csv
+
+Plotting BIC statistics (Figure 8b) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_8b.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_8b.csv
+
+Plotting AIC statistics (Figure E12) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E12.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E12.csv
+
+
+
+***** Analyzing individual earnings *****
+
+Loading data ...
+
+Analyzing annual earnings by year...
+
+Plotting r-squared and BIC over time (Figure 9) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_9.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_9.csv
+
+Plotting (scaled) AIC statistics (Figure E14) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E14.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E14.csv
+
+Calculating incremental r-squared values (after adding controls) ...
+
+Plotting incremental r-squared (Figure E13) ...
+File Path : /scratch/bp1094/FnB/output/figures/Figure_E13.pdf
+Data Path : /scratch/bp1094/FnB/output/data/Figure_E13.csv
+
+Done!
+
+Date : 2020-02-25 10:04:00
+Total Runtime : 18.05543 hours
+
+Session information -------------------------------------------------------------------
+
+R version 3.5.1 (2018-07-02)
+Platform: x86_64-centos-linux-gnu (64-bit)
+Running under: CentOS Linux 7 (Core)
+
+Matrix products: default
+BLAS: /share/apps/lapack/3.7.0/gnu/lib64/libblas.so.3.7.0
+LAPACK: /share/apps/lapack/3.7.0/gnu/lib64/liblapack.so.3.7.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] parallel  stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+ [1] doRNG_1.8.2       rngtools_1.5      doParallel_1.0.14 iterators_1.0.10 
+ [5] foreach_1.4.4     emojifont_0.5.3   gridExtra_2.3     ggplot2_3.1.0    
+ [9] data.table_1.12.8 igraph_1.2.4.1    here_0.1         
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.1                pillar_1.3.1             
+ [3] compiler_3.5.1            plyr_1.8.4               
+ [5] tools_3.5.1               readstata13_0.9.2        
+ [7] sysfonts_0.8              digest_0.6.18            
+ [9] lattice_0.20-35           tibble_2.1.1             
+[11] gtable_0.3.0              pkgconfig_2.0.2          
+[13] rlang_0.3.4               Matrix_1.2-14            
+[15] RcppArmadillo_0.9.400.3.0 proto_1.0.0              
+[17] stringr_1.4.0             withr_2.1.2              
+[19] dplyr_0.8.0.1             showtextdb_2.0           
+[21] gtools_3.8.1              rprojroot_1.3-2          
+[23] grid_3.5.1                tidyselect_0.2.5         
+[25] glue_1.3.1                R6_2.4.0                 
+[27] gdata_2.18.0              reshape2_1.4.3           
+[29] purrr_0.3.2               magrittr_1.5             
+[31] backports_1.1.2           scales_1.0.0             
+[33] codetools_0.2-15          showtext_0.7             
+[35] assertthat_0.2.1          colorspace_1.4-1         
+[37] labeling_0.3              stringi_1.4.3            
+[39] lazyeval_0.2.2            munsell_0.5.0            
+[41] crayon_1.3.4             
+
+---------------------------------------------------------------------------------------
+
+Greetings from Barum and Siwei!
+
+We hope you were able to replicate all results successfully. In case you have any questions regarding the rawdata, direct them to siwei.cheng@nyu.edu. For questions regarding the analysis and models/algorithms, contact bp1094@nyu.edu.
+
+

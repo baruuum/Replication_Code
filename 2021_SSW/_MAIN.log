@@ -1,0 +1,100 @@
+running
+  '/Library/Frameworks/R.framework/Versions/4.0/Resources/bin/R --no-echo --no-restore --vanilla --file=_MAIN.R'
+
+Running _MAIN.R on 2020-12-18 23:21:26
+
+Checking required packages ...
+All packages installed!
+
+
+Sourcing util functions ...
+Testing util functions ...
+update_denom_node unit-test passed!
+update_denom_edge unit-test passed for simple graphs!
+update_denom_edge unit-test passed for bipartite graphs!
+update_centr_betw unit-test passed!
+Sourcing Procrustes transform function ...
+Testing function for Procrustes transform ...
+All checks for procrustes transfrom function passed!
+Sourcing functions for distance calculation ...
+Testing distance functions ...
+All checks for distance function passed!
+Sourcing functions for plotting ...
+Done!
+
+
+Start running 01_Fall19_replication.R on 2020-12-18 23:21:46
+Done running script on 2020-12-18 23:37:22
+
+
+Start running 02_Fall20_analysis.R on 2020-12-18 23:37:22
+Done running script on 2020-12-18 23:39:43
+
+
+Start running 03_Table_19_20.R on 2020-12-18 23:39:43
+Done running script on 2020-12-18 23:39:44
+
+
+Start running 04_Update_table.R on 2020-12-18 23:39:44
+Done running script on 2020-12-18 23:39:44
+
+
+Start running 05_Plot_19.R on 2020-12-18 23:39:44
+Define plotting colors ...
+Calculating layout for network plot ...
+Creating network plots ...
+Creating network plot with color-blind friendly colors...
+Done running script on 2020-12-18 23:40:42
+
+
+Start running 06_Plot_20.R on 2020-12-18 23:40:42
+Calculating layout for network plot ...
+Creating network plots ...
+Creating network plot with color-blind friendly colors...
+Done running script on 2020-12-18 23:40:59
+
+Start running 07_Plot_transform.R on 2020-12-18 23:40:59
+
+Performing Procrustean transform ...
+Creating network plots ...
+Creating network plot with color-blind friendly colors...
+Done running script on 2020-12-18 23:41:01
+
+
+Start running 08_Clustering.R on 2020-12-18 23:41:01
+Done running script on 2020-12-18 23:41:35
+
+
+_MAIN.R done on 2020-12-18 23:41:35
+
+
+Session Information ----------------------------
+
+R version 4.0.3 (2020-10-10)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Catalina 10.15.7
+
+Matrix products: default
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] magrittr_1.5      data.table_1.13.3 igraph_1.2.6      here_0.1         
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.5.1             hms_0.5.3                munsell_0.5.0           
+ [4] colorspace_1.4-1         R6_2.4.1                 RcppArmadillo_0.10.1.2.0
+ [7] rlang_0.4.8              tools_4.0.3              rio_0.5.16              
+[10] ellipsis_0.3.1           readxl_1.3.1             rprojroot_1.3-2         
+[13] tibble_3.0.4             lifecycle_0.2.0          crayon_1.3.4            
+[16] zip_2.1.1                farver_2.0.3             vctrs_0.3.4             
+[19] curl_4.3                 haven_2.3.1              openxlsx_4.2.2          
+[22] stringi_1.5.3            compiler_4.0.3           pillar_1.4.6            
+[25] cellranger_1.1.0         scales_1.1.1             forcats_0.5.0           
+[28] backports_1.1.10         foreign_0.8-80           pkgconfig_2.0.3         
