@@ -1,0 +1,1041 @@
+running
+  '/usr/local/lib/R/bin/R --no-echo --no-restore --vanilla --file=1_Fit_Dim0.R'
+
+here() starts at /scratch/bp1094/space
+
+> library("here")
+
+> library("data.table")
+
+> library("cmdstanr")
+This is cmdstanr version 0.4.0
+- Online documentation and vignettes at mc-stan.org/cmdstanr
+- Use set_cmdstan_path() to set the path to CmdStan
+- Use install_cmdstan() to install CmdStan
+
+> library("rstan")
+Loading required package: StanHeaders
+Loading required package: ggplot2
+rstan (Version 2.21.2, GitRev: 2e1f913d3ca3)
+For execution on a local, multicore CPU with excess RAM we recommend calling
+options(mc.cores = parallel::detectCores()).
+To avoid recompilation of unchanged Stan programs, we recommend calling
+rstan_options(auto_write = TRUE)
+
+> library("loo")
+This is loo version 2.4.1
+- Online documentation and vignettes at mc-stan.org/loo
+- As of v2.0.0 loo defaults to 1 core but we recommend using as many as possible. Use the 'cores' argument or set options(mc.cores = NUM_CORES) for an entire session. 
+
+Attaching package: 'loo'
+
+The following object is masked from 'package:rstan':
+
+    loo
+
+
+> stopifnot(exists("n_cores"), exists("n_dim"), exists("model_name"), 
++     exists("min_resp"), exists("v_order"), exists("model_seed"), 
++     exist .... [TRUNCATED] 
+
+> mcmc_opts = list()
+
+> mcmc_opts$chains = n_chains
+
+> mcmc_opts$parallel_chains = mcmc_opts$chains
+
+> mcmc_opts$threads_per_chain = floor(n_cores/mcmc_opts$parallel_chains)
+
+> mcmc_opts$iter_sampling = iter_sampling
+
+> mcmc_opts$iter_warmup = iter_warmup
+
+> mcmc_opts$refresh = refresh
+
+> mcmc_opts$seed = model_seed
+
+> mcmc_opts$init = init
+
+> mcmc_opts$max_treedepth = max_treedepth
+
+> mcmc_opts$adapt_delta = adapt_delta
+
+> mcmc_opts$step_size = step_size
+
+> set_cmdstan_path(here("cmdstan", "cmdstan-2.27.0"))
+CmdStan path set to: /scratch/bp1094/space/cmdstan/cmdstan-2.27.0
+
+> cmdstan_ver = cmdstan_version()
+
+> new_path = paste0(here("results", paste0("dim", n_dim)))
+
+> if (!dir.exists(new_path)) {
++     message(paste0("Creating directory ", new_path))
++     dir.create(new_path, recursive = T)
++ }
+
+> source(here("workflow", "0_Functions.R"))
+
+> save_dir = here("results", paste0("dim", n_dim), model_name)
+
+> if (!dir.exists(save_dir)) {
++     message(paste0("Creating directory to save results into ", 
++         save_dir, " ..."))
++     dir.create(save_di .... [TRUNCATED] 
+
+> dat_list = readRDS(here("data", "acq_dat.rds"))
+
+> dat = copy(dat_list$org_dat)
+
+> org_n = nrow(dat)
+
+> iso = rowSums(dat[, -1], na.rm = T) == 0
+
+> if (sum(iso) > 0) {
++     message(paste0("Removing ", sum(iso), " isolates ..."))
++     dat = dat[!iso, ]
++ }
+Removing 7 isolates ...
+
+> if (min_resp > 0) {
++     message(paste0("Dropping respondents with less than ", min_resp, 
++         " valid responses .."))
++     message(paste0(" ..." ... [TRUNCATED] 
+Dropping respondents with less than 7 valid responses ..
+No. of obs. of original dataset : 672
+No. of obs. who are isolates : 7
+No. of obs. with response < 7 : 10
+No. of dropped obs. : 17
+No. of obs. used in analysis : 655
+
+> if (!is.null(v_order)) {
++     message("\nChanging order of variables .. ")
++     oo = paste0("acq", v_order)
++     nn = names(dat)
++     setcolorde .... [TRUNCATED] 
+Variable order not specified!
+Proceeding without reordering ...
+
+> message("\nGenerating data for STAN ...\n")
+
+Generating data for STAN ...
+
+
+> setnames(dat, c("id", 1:(ncol(dat) - 1)))
+
+> dat[, `:=`(id, 1:nrow(dat))]
+
+> long_dat = melt(dat, id.vars = "id")
+
+> setcolorder(long_dat, c("id", "variable", "value"))
+
+> setnames(long_dat, c("id", "item", "response"))
+
+> setorder(long_dat, id, item)
+
+> long_dat = long_dat[, `:=`(item, as.numeric(item))][!is.na(response)]
+
+> stopifnot(all.equal(long_dat[, sort(unique(id))], 
++     1:long_dat[, max(id)]))
+
+> dat_list$wide_dat = dat
+
+> dat_list$long_dat = long_dat
+
+> dat_list$n_obs = nrow(dat_list$long_dat)
+
+> dat_list$n_inds = nrow(dat_list$wide_dat)
+
+> message(paste0("No. of Respondents : ", dat_list$n_inds))
+No. of Respondents : 655
+
+> message(paste0("No. of Items : ", dat_list$n_items))
+No. of Items : 13
+
+> message(paste0("No. of Item-responses : ", dat_list$n_obs))
+No. of Item-responses : 8069
+
+> ppp = fread(here("data", "pop_est.csv"))
+
+> ppp[, `:=`(source, NULL)]
+
+> dat_list$item_sum = merge(dat_list$item_sum, ppp, 
++     by = "labs", sort = F)
+
+> setcolorder(dat_list$item_sum, c("item_no", "labs", 
++     "prop", "sds"))
+
+> message("\nPrior means and std. dev. for groups")
+
+Prior means and std. dev. for groups
+
+> print(as.matrix(dat_list$item_sum[, .(labs, prop, 
++     sds)]))
+      labs       prop    sds    
+ [1,] "acqunemp" "0.050" "0.010"
+ [2,] "acqhome"  "0.061" "0.010"
+ [3,] "acqprisn" "0.010" "0.005"
+ [4,] "acqasian" "0.043" "0.010"
+ [5,] "acqblack" "0.122" "0.010"
+ [6,] "acqhisp"  "0.148" "0.010"
+ [7,] "acqwhite" "0.662" "0.010"
+ [8,] "acqgay"   "0.014" "0.020"
+ [9,] "acqcohab" "0.011" "0.010"
+[10,] "acqgoatt" "0.311" "0.020"
+[11,] "acqnoatt" "0.422" "0.020"
+[12,] "acqlib"   "0.088" "0.019"
+[13,] "acqcon"   "0.116" "0.027"
+
+> message("\n\nStart fitting Stan model ...")
+
+
+Start fitting Stan model ...
+
+> message(paste0("Fitting ", n_dim, " dimensions ...\n"))
+Fitting 0 dimensions ...
+
+
+> message("\nCompiling model ...")
+
+Compiling model ...
+
+> cmd_file = here("stan_code", paste0(model_name, ".stan"))
+
+> mod = cmdstan_model(stan_file = cmd_file, force_recompile = TRUE, 
++     pedantic = TRUE, dir = here("results", paste0("dim", n_dim), 
++         mod .... [TRUNCATED] 
+Warning in '/state/partition1/job-9648266/Rtmph0E1al/model-3270335911d10b.stan', line 99, column 25: The variable partial_sum may not have been assigned a value before its use.
+
+> message("\nModel Code :\n")
+
+Model Code :
+
+
+> cat(paste0("file name : ", model_name, ".stan"))
+file name : randmix.stan
+> mod$print()
+
+functions {
+
+    real partial_sum(
+        int[] y_slice,
+        int start,
+        int end,
+        int[] ii,
+        int[] jj,
+        real alpha,
+        vector gamma,
+        real[] p
+    ) {
+  
+        // no of units in slice
+        int len = end - start + 1;
+        
+        // reindex vars
+        int ii_slice[len] = ii[start:end];
+        int jj_slice[len] = jj[start:end];
+
+        // accumulator
+        real psum = 0.0;
+        
+        for (n in 1:len) {
+        
+            real mu = exp(alpha + gamma[ii_slice[n]] + log(p[jj_slice[n]]));
+            
+            if (y_slice[n] == 0)
+                psum += poisson_lpmf(0 | mu);
+            else if (y_slice[n] == 1)
+                psum += poisson_lpmf(1 | mu);
+            else if (y_slice[n] == 2)
+                psum += log_diff_exp(poisson_lcdf(5 | mu), poisson_lcdf(1 | mu));
+            else if (y_slice[n] == 3)
+                psum += log_diff_exp(poisson_lcdf(10 | mu), poisson_lcdf(5 | mu));
+            else
+                psum += poisson_lccdf(10 | mu);
+    
+        }
+  
+        return psum;
+        
+    }
+
+}
+data {
+  
+    int<lower=0> N;                 // No. of item-responses
+    int<lower=0> I;                 // No. of Individuals.
+    int<lower=0> J;                 // No. Items.
+    int<lower=0> ii[N];             // individual identifiers
+    int<lower=0> jj[N];             // item identifiers
+    int<lower=0> y[N];              // responses
+    real<lower=0, upper=1> pops[J]; // group offset
+    real<lower=0> sds[J];           // std. dev. of priors
+    
+}
+
+transformed data {
+    
+    // let stan automatically choose grainsize
+    int grainsize = 1;
+
+}
+
+parameters {
+
+    // Population parameters
+    real<lower=0, upper=1> p[J]; 
+  
+    // Gregariousness parameters
+    real alpha;                
+    vector[I] gamma_star;      
+    real<lower=0> sigma_gamma; 
+
+}
+
+transformed parameters {
+
+    vector[I] gamma;
+  
+    gamma = gamma_star * sigma_gamma;
+  
+}
+
+model {
+
+    // population estimates priors
+    for (j in 1:J) 
+        p[j] ~ normal(pops[j],sds[j]);
+  
+    // gregariousness priors
+    alpha ~ normal(0, 5);
+    gamma_star ~ normal(0, 1);
+    sigma_gamma ~ normal(0, 3);
+
+    // log-likelihood
+    target += reduce_sum(partial_sum, y, grainsize, ii, jj, alpha, gamma, p);
+    
+}
+
+generated quantities {
+
+  real log_lik[N];
+  
+  // log-likelihood
+  for (i in 1:N) {
+
+    real mu = exp(alpha + gamma[ii[i]] + log(p[jj[i]]));
+
+    if (y[i] == 0)
+        log_lik[i] = poisson_lpmf(0|mu);
+    else if (y[i] == 1)
+        log_lik[i] = poisson_lpmf(1|mu);
+    else if (y[i] == 2)
+        log_lik[i] = log_diff_exp(poisson_lcdf(5 |mu), 
+                                  poisson_lcdf(1 | mu));
+    else if (y[i] == 3)
+        log_lik[i] = log_diff_exp(poisson_lcdf(10 | mu), 
+                                  poisson_lcdf(5 | mu));
+    else
+        log_lik[i] = poisson_lccdf(10|mu);
+  }
+
+} 
+
+
+> stan_dat = list(N = dat_list$n_obs, I = dat_list$n_inds, 
++     J = dat_list$n_items, D = n_dim, ii = dat_list$long_dat[, 
++         id], jj = dat_l .... [TRUNCATED] 
+
+> fit = mod$sample(data = stan_dat, seed = mcmc_opts$seed, 
++     chains = mcmc_opts$chains, parallel_chains = mcmc_opts$parallel_chains, 
++     threa .... [TRUNCATED] 
+Running MCMC with 2 parallel chains, with 12 thread(s) per chain...
+
+Chain 1 Iteration:    1 / 7000 [  0%]  (Warmup) 
+Chain 2 Iteration:    1 / 7000 [  0%]  (Warmup) 
+Chain 2 Iteration: 1000 / 7000 [ 14%]  (Warmup) 
+Chain 1 Iteration: 1000 / 7000 [ 14%]  (Warmup) 
+Chain 2 Iteration: 2000 / 7000 [ 28%]  (Warmup) 
+Chain 1 Iteration: 2000 / 7000 [ 28%]  (Warmup) 
+Chain 2 Iteration: 3000 / 7000 [ 42%]  (Warmup) 
+Chain 2 Iteration: 3001 / 7000 [ 42%]  (Sampling) 
+Chain 1 Iteration: 3000 / 7000 [ 42%]  (Warmup) 
+Chain 1 Iteration: 3001 / 7000 [ 42%]  (Sampling) 
+Chain 2 Iteration: 4000 / 7000 [ 57%]  (Sampling) 
+Chain 1 Iteration: 4000 / 7000 [ 57%]  (Sampling) 
+Chain 2 Iteration: 5000 / 7000 [ 71%]  (Sampling) 
+Chain 1 Iteration: 5000 / 7000 [ 71%]  (Sampling) 
+Chain 2 Iteration: 6000 / 7000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 7000 / 7000 [100%]  (Sampling) 
+Chain 2 finished in 127.5 seconds.
+Chain 1 Iteration: 6000 / 7000 [ 85%]  (Sampling) 
+Chain 1 Iteration: 7000 / 7000 [100%]  (Sampling) 
+Chain 1 finished in 162.4 seconds.
+
+Both chains finished successfully.
+Mean chain execution time: 145.0 seconds.
+Total execution time: 162.5 seconds.
+
+> fit$cmdstan_diagnose()
+Processing csv files: /state/partition1/job-9648266/Rtmph0E1al/randmix-202108311459-1-98b5a6.csv, /state/partition1/job-9648266/Rtmph0E1al/randmix-202108311459-2-98b5a6.csv
+
+Checking sampler transitions treedepth.
+Treedepth satisfactory for all transitions.
+
+Checking sampler transitions for divergences.
+No divergent transitions found.
+
+Checking E-BFMI - sampler transitions HMC potential energy.
+E-BFMI satisfactory.
+
+Effective sample size satisfactory.
+
+Split R-hat values satisfactory all parameters.
+
+Processing complete, no problems detected.
+
+> fit$save_object(file = here("results", paste0("dim", 
++     n_dim), model_name, paste0(model_name, "_cmdstan.rds")))
+
+> pars = readRDS(here("data", "pars.rds"))
+
+> pars = switch(model_name, randmix = pars$rm, overdispersed = pars$overdispersed, 
++     social_space = pars$social_space, social_space_1 = pars$soci .... [TRUNCATED] 
+
+> model_info = list(model_name, n_dim, pars, mcmc_opts)
+
+> names(model_info) = c("model_name", "n_dim", "pars", 
++     "mcmc_opts")
+
+> res = list(data = dat_list, model_info = model_info)
+
+> res$fit = rstan::read_stan_csv(fit$output_files())
+
+> message("Saving results ...")
+Saving results ...
+
+> saveRDS(res, here("results", paste0("dim", n_dim), 
++     model_name, paste0(model_name, ".rds")))
+
+> message("divergence (per chain)")
+divergence (per chain)
+
+> try(get_div(res))
+[1] 0 0
+
+> try(conv_check(res))
+Creating traceplots for alpha ...
+Creating traceplots for gamma ...
+As total number of parameters in gamma exceeds 30, sampling 30 parameters for convergence checking ...
+Creating traceplots for log_lik ...
+As total number of parameters in log_lik exceeds 30, sampling 30 parameters for convergence checking ...
+Creating traceplots for lp__ ...
+Creating traceplots for p ...
+Creating traceplots for sigma_gamma ...
+This is bayesplot version 1.8.1
+- Online documentation and vignettes at mc-stan.org/bayesplot
+- bayesplot theme set to bayesplot::theme_default()
+   * Does _not_ affect other ggplot2 plots
+   * See ?bayesplot_theme_set for details on theme setting
+Plotting Diagnostic plots ... 
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+null device 
+          1 
+
+> ll = extract_log_lik(res$fit)
+
+> Waic = waic(ll)
+
+> Loo = loo(ll, cores = 1)
+
+> message("WAIC and LOO")
+WAIC and LOO
+
+> print(Waic)
+
+Computed from 8000 by 8069 log-likelihood matrix
+
+          Estimate    SE
+elpd_waic -14854.4 209.8
+p_waic      1966.3  43.9
+waic       29708.9 419.6
+
+1376 (17.1%) p_waic estimates greater than 0.4. We recommend trying loo instead. 
+
+> print(Loo)
+
+Computed from 8000 by 8069 log-likelihood matrix
+
+         Estimate    SE
+elpd_loo -14898.3 210.7
+p_loo      2010.2  45.2
+looic     29796.7 421.3
+------
+Monte Carlo SE of elpd_loo is NA.
+
+Pareto k diagnostic values:
+                         Count Pct.    Min. n_eff
+(-Inf, 0.5]   (good)     7643  94.7%   343       
+ (0.5, 0.7]   (ok)        284   3.5%   141       
+   (0.7, 1]   (bad)       104   1.3%   20        
+   (1, Inf)   (very bad)   38   0.5%   16        
+See help('pareto-k-diagnostic') for details.
+
+> saveRDS(Waic, here("results", paste0("dim", n_dim), 
++     model_name, "waic.rds"))
+
+> saveRDS(Loo, here("results", paste0("dim", n_dim), 
++     model_name, "loo.rds"))
+Warning messages:
+1: 
+1376 (17.1%) p_waic estimates greater than 0.4. We recommend trying loo instead. 
+2: Relative effective sample sizes ('r_eff' argument) not specified.
+For models fit with MCMC, the reported PSIS effective sample sizes and 
+MCSE estimates will be over-optimistic. 
+3: Some Pareto k diagnostic values are too high. See help('pareto-k-diagnostic') for details.
+ 
+
+> library("here")
+
+> library("data.table")
+
+> library("cmdstanr")
+
+> library("rstan")
+
+> library("loo")
+
+> stopifnot(exists("n_cores"), exists("n_dim"), exists("model_name"), 
++     exists("min_resp"), exists("v_order"), exists("model_seed"), 
++     exist .... [TRUNCATED] 
+
+> mcmc_opts = list()
+
+> mcmc_opts$chains = n_chains
+
+> mcmc_opts$parallel_chains = mcmc_opts$chains
+
+> mcmc_opts$threads_per_chain = floor(n_cores/mcmc_opts$parallel_chains)
+
+> mcmc_opts$iter_sampling = iter_sampling
+
+> mcmc_opts$iter_warmup = iter_warmup
+
+> mcmc_opts$refresh = refresh
+
+> mcmc_opts$seed = model_seed
+
+> mcmc_opts$init = init
+
+> mcmc_opts$max_treedepth = max_treedepth
+
+> mcmc_opts$adapt_delta = adapt_delta
+
+> mcmc_opts$step_size = step_size
+
+> set_cmdstan_path(here("cmdstan", "cmdstan-2.27.0"))
+CmdStan path set to: /scratch/bp1094/space/cmdstan/cmdstan-2.27.0
+
+> cmdstan_ver = cmdstan_version()
+
+> new_path = paste0(here("results", paste0("dim", n_dim)))
+
+> if (!dir.exists(new_path)) {
++     message(paste0("Creating directory ", new_path))
++     dir.create(new_path, recursive = T)
++ }
+
+> source(here("workflow", "0_Functions.R"))
+
+> save_dir = here("results", paste0("dim", n_dim), model_name)
+
+> if (!dir.exists(save_dir)) {
++     message(paste0("Creating directory to save results into ", 
++         save_dir, " ..."))
++     dir.create(save_di .... [TRUNCATED] 
+
+> dat_list = readRDS(here("data", "acq_dat.rds"))
+
+> dat = copy(dat_list$org_dat)
+
+> org_n = nrow(dat)
+
+> iso = rowSums(dat[, -1], na.rm = T) == 0
+
+> if (sum(iso) > 0) {
++     message(paste0("Removing ", sum(iso), " isolates ..."))
++     dat = dat[!iso, ]
++ }
+Removing 7 isolates ...
+
+> if (min_resp > 0) {
++     message(paste0("Dropping respondents with less than ", min_resp, 
++         " valid responses .."))
++     message(paste0(" ..." ... [TRUNCATED] 
+Dropping respondents with less than 7 valid responses ..
+No. of obs. of original dataset : 672
+No. of obs. who are isolates : 7
+No. of obs. with response < 7 : 10
+No. of dropped obs. : 17
+No. of obs. used in analysis : 655
+
+> if (!is.null(v_order)) {
++     message("\nChanging order of variables .. ")
++     oo = paste0("acq", v_order)
++     nn = names(dat)
++     setcolorde .... [TRUNCATED] 
+Variable order not specified!
+Proceeding without reordering ...
+
+> message("\nGenerating data for STAN ...\n")
+
+Generating data for STAN ...
+
+
+> setnames(dat, c("id", 1:(ncol(dat) - 1)))
+
+> dat[, `:=`(id, 1:nrow(dat))]
+
+> long_dat = melt(dat, id.vars = "id")
+
+> setcolorder(long_dat, c("id", "variable", "value"))
+
+> setnames(long_dat, c("id", "item", "response"))
+
+> setorder(long_dat, id, item)
+
+> long_dat = long_dat[, `:=`(item, as.numeric(item))][!is.na(response)]
+
+> stopifnot(all.equal(long_dat[, sort(unique(id))], 
++     1:long_dat[, max(id)]))
+
+> dat_list$wide_dat = dat
+
+> dat_list$long_dat = long_dat
+
+> dat_list$n_obs = nrow(dat_list$long_dat)
+
+> dat_list$n_inds = nrow(dat_list$wide_dat)
+
+> message(paste0("No. of Respondents : ", dat_list$n_inds))
+No. of Respondents : 655
+
+> message(paste0("No. of Items : ", dat_list$n_items))
+No. of Items : 13
+
+> message(paste0("No. of Item-responses : ", dat_list$n_obs))
+No. of Item-responses : 8069
+
+> ppp = fread(here("data", "pop_est.csv"))
+
+> ppp[, `:=`(source, NULL)]
+
+> dat_list$item_sum = merge(dat_list$item_sum, ppp, 
++     by = "labs", sort = F)
+
+> setcolorder(dat_list$item_sum, c("item_no", "labs", 
++     "prop", "sds"))
+
+> message("\nPrior means and std. dev. for groups")
+
+Prior means and std. dev. for groups
+
+> print(as.matrix(dat_list$item_sum[, .(labs, prop, 
++     sds)]))
+      labs       prop    sds    
+ [1,] "acqunemp" "0.050" "0.010"
+ [2,] "acqhome"  "0.061" "0.010"
+ [3,] "acqprisn" "0.010" "0.005"
+ [4,] "acqasian" "0.043" "0.010"
+ [5,] "acqblack" "0.122" "0.010"
+ [6,] "acqhisp"  "0.148" "0.010"
+ [7,] "acqwhite" "0.662" "0.010"
+ [8,] "acqgay"   "0.014" "0.020"
+ [9,] "acqcohab" "0.011" "0.010"
+[10,] "acqgoatt" "0.311" "0.020"
+[11,] "acqnoatt" "0.422" "0.020"
+[12,] "acqlib"   "0.088" "0.019"
+[13,] "acqcon"   "0.116" "0.027"
+
+> message("\n\nStart fitting Stan model ...")
+
+
+Start fitting Stan model ...
+
+> message(paste0("Fitting ", n_dim, " dimensions ...\n"))
+Fitting 0 dimensions ...
+
+
+> message("\nCompiling model ...")
+
+Compiling model ...
+
+> cmd_file = here("stan_code", paste0(model_name, ".stan"))
+
+> mod = cmdstan_model(stan_file = cmd_file, force_recompile = TRUE, 
++     pedantic = TRUE, dir = here("results", paste0("dim", n_dim), 
++         mod .... [TRUNCATED] 
+Warning in '/state/partition1/job-9648266/Rtmph0E1al/model-32703353c8faf3.stan', line 107, column 25: The variable partial_sum may not have been assigned a value before its use.
+
+> message("\nModel Code :\n")
+
+Model Code :
+
+
+> cat(paste0("file name : ", model_name, ".stan"))
+file name : overdispersed.stan
+> mod$print()
+
+functions {
+
+    real partial_sum(
+        int[] y_slice,
+        int start,
+        int end,
+        int[] ii,
+        int[] jj,
+        real alpha,
+        vector gamma,
+        real[] p,
+        real[] phi
+    ) {
+  
+        // index
+        int len = end - start + 1;
+        
+        // reindex vars
+        int ii_slice[len] = ii[start:end];
+        int jj_slice[len] = jj[start:end];
+        
+        // accumulator
+        real psum = 0.0;
+        
+        for (n in 1:len) {
+        
+            real mu = exp(alpha + gamma[ii_slice[n]] + log(p[jj_slice[n]]));
+            real ph = phi[jj_slice[n]];
+        
+            if (y_slice[n] == 0)
+                psum += neg_binomial_2_lpmf(0 | mu, ph);
+            else if (y_slice[n] == 1)
+                psum += neg_binomial_2_lpmf(1 | mu, ph);
+            else if (y_slice[n] == 2)
+                psum += log_diff_exp(neg_binomial_2_lcdf(5 | mu, ph), 
+                                     neg_binomial_2_lcdf(1 | mu, ph));
+            else if (y_slice[n] == 3)
+                psum += log_diff_exp(neg_binomial_2_lcdf(10 | mu, ph), 
+                                     neg_binomial_2_lcdf(5 | mu, ph));
+            else
+                psum += neg_binomial_2_lccdf(10 | mu, ph);
+          
+        }
+  
+        return psum;
+        
+    }
+
+}
+
+data {
+  
+    int<lower=0> N;                 // No. of item-responses
+    int<lower=0> I;                 // No. of Individuals.
+    int<lower=0> J;                 // No. Items.
+    int<lower=0> ii[N];             // individual identifiers
+    int<lower=0> jj[N];             // item identifiers
+    int<lower=0> y[N];              // responses
+    real<lower=0, upper=1> pops[J]; // group offset
+    real<lower=0> sds[J];           // std. dev. of priors
+
+}
+
+
+transformed data {
+    
+    // let stan automatically choose grainsize
+    int grainsize = 1;
+
+}
+
+parameters {
+
+    // Population parameters
+    real<lower=0, upper=1> p[J]; 
+  
+    // Gregariousness parameters
+    real alpha;                
+    vector[I] gamma_star;      
+    real<lower=0> sigma_gamma; 
+    real<lower=0> phi[J];
+
+}
+
+transformed parameters {
+
+    vector[I] gamma;
+  
+    gamma = gamma_star * sigma_gamma;
+  
+}
+
+model {
+
+    // population estimates priors
+    for (j in 1:J) 
+        p[j] ~ normal(pops[j], sds[j]);
+  
+    // gregariousness priors
+    alpha ~ normal(0, 5);
+    gamma_star ~ normal(0, 1);
+    sigma_gamma ~ normal(0, 3);
+    phi ~ normal(0, 3);
+  
+    // log-likelihood
+    target += reduce_sum(partial_sum, y, grainsize, ii, jj, alpha, gamma, p, phi);
+    
+}
+
+generated quantities {
+
+    real log_lik[N];
+    
+    // log-likelihood
+    for (i in 1:N) {
+  
+        real mu;
+        real ph;
+        
+        mu = exp(alpha + gamma[ii[i]] + log(p[jj[i]]));
+        ph = phi[jj[i]];
+    
+        if (y[i]==0)
+            log_lik[i] = neg_binomial_2_lpmf(0 | mu, ph);
+        else if (y[i]==1)
+            log_lik[i] = neg_binomial_2_lpmf(1 | mu, ph);
+        else if (y[i]==2)
+            log_lik[i] = log_diff_exp(neg_binomial_2_lcdf(5 | mu, ph), 
+                                      neg_binomial_2_lcdf(1|mu, ph));
+        else if (y[i]==3)
+            log_lik[i] = log_diff_exp(neg_binomial_2_lcdf(10 | mu, ph), 
+                                      neg_binomial_2_lcdf(5 | mu, ph));
+        else
+            log_lik[i] = neg_binomial_2_lccdf(10 | mu, ph);
+            
+    }
+  
+} 
+
+
+> stan_dat = list(N = dat_list$n_obs, I = dat_list$n_inds, 
++     J = dat_list$n_items, D = n_dim, ii = dat_list$long_dat[, 
++         id], jj = dat_l .... [TRUNCATED] 
+
+> fit = mod$sample(data = stan_dat, seed = mcmc_opts$seed, 
++     chains = mcmc_opts$chains, parallel_chains = mcmc_opts$parallel_chains, 
++     threa .... [TRUNCATED] 
+Running MCMC with 2 parallel chains, with 12 thread(s) per chain...
+
+Chain 1 Iteration:    1 / 7000 [  0%]  (Warmup) 
+Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 1 Exception: Exception: neg_binomial_2_lcdf: Location parameter is inf, but must be positive finite! (in '/state/partition1/job-9648266/Rtmph0E1al/model-32703353c8faf3.stan', line 36, column 16 to line 37, column 70) (in '/state/partition1/job-9648266/Rtmph0E1al/model-32703353c8faf3.stan', line 107, column 4 to column 82)
+Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 1 
+Chain 2 Iteration:    1 / 7000 [  0%]  (Warmup) 
+Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 2 Exception: Exception: neg_binomial_2_lcdf: Location parameter is inf, but must be positive finite! (in '/state/partition1/job-9648266/Rtmph0E1al/model-32703353c8faf3.stan', line 39, column 16 to line 40, column 70) (in '/state/partition1/job-9648266/Rtmph0E1al/model-32703353c8faf3.stan', line 107, column 4 to column 82)
+Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 2 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 2 
+Chain 1 Iteration: 1000 / 7000 [ 14%]  (Warmup) 
+Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 2 Exception: Exception: grad_2F1: k (internal counter) exceeded 1000000 iterations, hypergeometric function gradient did not converge. (in '/state/partition1/job-9648266/Rtmph0E1al/model-32703353c8faf3.stan', line 42, column 16 to column 58) (in '/state/partition1/job-9648266/Rtmph0E1al/model-32703353c8faf3.stan', line 107, column 4 to column 82)
+Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 2 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 2 
+Chain 2 Iteration: 1000 / 7000 [ 14%]  (Warmup) 
+Chain 1 Iteration: 2000 / 7000 [ 28%]  (Warmup) 
+Chain 2 Iteration: 2000 / 7000 [ 28%]  (Warmup) 
+Chain 1 Iteration: 3000 / 7000 [ 42%]  (Warmup) 
+Chain 1 Iteration: 3001 / 7000 [ 42%]  (Sampling) 
+Chain 2 Iteration: 3000 / 7000 [ 42%]  (Warmup) 
+Chain 2 Iteration: 3001 / 7000 [ 42%]  (Sampling) 
+Chain 1 Iteration: 4000 / 7000 [ 57%]  (Sampling) 
+Chain 2 Iteration: 4000 / 7000 [ 57%]  (Sampling) 
+Chain 1 Iteration: 5000 / 7000 [ 71%]  (Sampling) 
+Chain 2 Iteration: 5000 / 7000 [ 71%]  (Sampling) 
+Chain 1 Iteration: 6000 / 7000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 6000 / 7000 [ 85%]  (Sampling) 
+Chain 1 Iteration: 7000 / 7000 [100%]  (Sampling) 
+Chain 1 finished in 382.0 seconds.
+Chain 2 Iteration: 7000 / 7000 [100%]  (Sampling) 
+Chain 2 finished in 411.6 seconds.
+
+Both chains finished successfully.
+Mean chain execution time: 396.8 seconds.
+Total execution time: 412.2 seconds.
+
+> fit$cmdstan_diagnose()
+Processing csv files: /state/partition1/job-9648266/Rtmph0E1al/overdispersed-202108311506-1-484ebc.csv, /state/partition1/job-9648266/Rtmph0E1al/overdispersed-202108311506-2-484ebc.csv
+
+Checking sampler transitions treedepth.
+Treedepth satisfactory for all transitions.
+
+Checking sampler transitions for divergences.
+No divergent transitions found.
+
+Checking E-BFMI - sampler transitions HMC potential energy.
+E-BFMI satisfactory.
+
+Effective sample size satisfactory.
+
+Split R-hat values satisfactory all parameters.
+
+Processing complete, no problems detected.
+
+> fit$save_object(file = here("results", paste0("dim", 
++     n_dim), model_name, paste0(model_name, "_cmdstan.rds")))
+
+> pars = readRDS(here("data", "pars.rds"))
+
+> pars = switch(model_name, randmix = pars$rm, overdispersed = pars$overdispersed, 
++     social_space = pars$social_space, social_space_1 = pars$soci .... [TRUNCATED] 
+
+> model_info = list(model_name, n_dim, pars, mcmc_opts)
+
+> names(model_info) = c("model_name", "n_dim", "pars", 
++     "mcmc_opts")
+
+> res = list(data = dat_list, model_info = model_info)
+
+> res$fit = rstan::read_stan_csv(fit$output_files())
+
+> message("Saving results ...")
+Saving results ...
+
+> saveRDS(res, here("results", paste0("dim", n_dim), 
++     model_name, paste0(model_name, ".rds")))
+
+> message("divergence (per chain)")
+divergence (per chain)
+
+> try(get_div(res))
+[1] 0 0
+
+> try(conv_check(res))
+Creating traceplots for alpha ...
+Creating traceplots for gamma ...
+As total number of parameters in gamma exceeds 30, sampling 30 parameters for convergence checking ...
+Creating traceplots for log_lik ...
+As total number of parameters in log_lik exceeds 30, sampling 30 parameters for convergence checking ...
+Creating traceplots for lp__ ...
+Creating traceplots for p ...
+Creating traceplots for phi ...
+Creating traceplots for sigma_gamma ...
+Plotting Diagnostic plots ... 
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+null device 
+          1 
+
+> ll = extract_log_lik(res$fit)
+
+> Waic = waic(ll)
+
+> Loo = loo(ll, cores = 1)
+
+> message("WAIC and LOO")
+WAIC and LOO
+
+> print(Waic)
+
+Computed from 8000 by 8069 log-likelihood matrix
+
+          Estimate    SE
+elpd_waic  -9790.7  67.7
+p_waic       523.2  10.8
+waic       19581.5 135.5
+
+171 (2.1%) p_waic estimates greater than 0.4. We recommend trying loo instead. 
+
+> print(Loo)
+
+Computed from 8000 by 8069 log-likelihood matrix
+
+         Estimate    SE
+elpd_loo  -9802.3  68.0
+p_loo       534.7  11.4
+looic     19604.5 136.0
+------
+Monte Carlo SE of elpd_loo is NA.
+
+Pareto k diagnostic values:
+                         Count Pct.    Min. n_eff
+(-Inf, 0.5]   (good)     8016  99.3%   830       
+ (0.5, 0.7]   (ok)         47   0.6%   303       
+   (0.7, 1]   (bad)         6   0.1%   83        
+   (1, Inf)   (very bad)    0   0.0%   <NA>      
+See help('pareto-k-diagnostic') for details.
+
+> saveRDS(Waic, here("results", paste0("dim", n_dim), 
++     model_name, "waic.rds"))
+
+> saveRDS(Loo, here("results", paste0("dim", n_dim), 
++     model_name, "loo.rds"))
+Warning messages:
+1: 
+171 (2.1%) p_waic estimates greater than 0.4. We recommend trying loo instead. 
+2: Relative effective sample sizes ('r_eff' argument) not specified.
+For models fit with MCMC, the reported PSIS effective sample sizes and 
+MCSE estimates will be over-optimistic. 
+3: Some Pareto k diagnostic values are too high. See help('pareto-k-diagnostic') for details.
+ 
+
+
+---- Session Info ----
+R version 4.1.0 (2021-05-18)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 20.04.1 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+
+locale:
+[1] C
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] bayesplot_1.8.1      loo_2.4.1            rstan_2.21.2        
+[4] ggplot2_3.3.5        StanHeaders_2.21.0-7 cmdstanr_0.4.0      
+[7] data.table_1.14.0    here_1.0.1          
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.1.1     xfun_0.24            reshape2_1.4.4      
+ [4] purrr_0.3.4          V8_3.4.2             colorspace_2.0-2    
+ [7] vctrs_0.3.8          generics_0.1.0       stats4_4.1.0        
+[10] utf8_1.2.1           rlang_0.4.11         pkgbuild_1.2.0      
+[13] pillar_1.6.1         glue_1.4.2           withr_2.4.2         
+[16] DBI_1.1.1            distributional_0.2.2 plyr_1.8.6          
+[19] matrixStats_0.59.0   lifecycle_1.0.0      stringr_1.4.0       
+[22] posterior_1.0.1      munsell_0.5.0        gtable_0.3.0        
+[25] codetools_0.2-18     labeling_0.4.2       inline_0.3.19       
+[28] knitr_1.33           callr_3.7.0          ps_1.6.0            
+[31] curl_4.3.2           parallel_4.1.0       fansi_0.5.0         
+[34] Rcpp_1.0.6           scales_1.1.1         backports_1.2.1     
+[37] checkmate_2.0.0      RcppParallel_5.1.4   jsonlite_1.7.2      
+[40] abind_1.4-5          farver_2.1.0         gridExtra_2.3       
+[43] tensorA_0.36.2       digest_0.6.27        stringi_1.6.2       
+[46] processx_3.5.2       dplyr_1.0.7          grid_4.1.0          
+[49] rprojroot_2.0.2      cli_3.0.0            tools_4.1.0         
+[52] magrittr_2.0.1       tibble_3.1.2         crayon_1.4.1        
+[55] pkgconfig_2.0.3      ellipsis_0.3.2       prettyunits_1.1.1   
+[58] ggridges_0.5.3       assertthat_0.2.1     R6_2.5.0            
+[61] compiler_4.1.0      

@@ -1,0 +1,238 @@
+running
+  '/Library/Frameworks/R.framework/Versions/4.1/Resources/bin/R --no-echo --no-restore --vanilla --file=6_Analyze_Results.R'
+
+here() starts at /Volumes/D/_projects/socialspace_rep
+
+
+----------- Running 2-3_Analysis_GOF.R...
+
+
+Calculating LOOIC and WAIC ...
+Creating LaTeX table ...
+Starting posterior predictive checks for final model ...
+Loading required package: rstan
+Loading required package: StanHeaders
+Loading required package: ggplot2
+rstan (Version 2.21.2, GitRev: 2e1f913d3ca3)
+For execution on a local, multicore CPU with excess RAM we recommend calling
+options(mc.cores = parallel::detectCores()).
+To avoid recompilation of unchanged Stan programs, we recommend calling
+rstan_options(auto_write = TRUE)
+Element fit not found in fit_dat object !
+Treating fit_dat as data.table of posterior draws ...
+Generating 300 draws from posterior predictive distribution ...
+Element fit not found in fit_dat object !
+Treating fit_dat as data.table of posterior draws ...
+Generating 300 draws from posterior predictive distribution ...
+
+
+----------- Running 2-4_Conv_Stats.R...
+
+
+Calculating Neff and Rhat for all models ...
+Getting stats for dim0-randmix model ...
+Getting stats for dim0-overdispersed model ...
+Getting stats for dim2-social_space model ...
+Getting stats for dim3-social_space model ...
+Getting stats for dim4-social_space model ...
+Getting stats for dim5-social_space model ...
+Maximum Rhat across all models is: 1.01281
+Minimum Neff across all models is: 287.77453
+Summarizing convergence stats for final model in detail ...
+Creating LaTeX table ...
+
+
+----------- Running 3-1_Analysis_Salience_and_Dist.R...
+
+
+Package 'mclust' version 5.4.7
+Type 'citation("mclust")' for citing this R package in publications.
+Loading data ...
+Calculating salience measures ...
+Plotting salience measures ...
+Calculating between-group distances ...
+Median distance from 'White' to other racial groups is
+   Black Hispanic    Asian 
+3.831636 4.763582 2.314850 
+Median distance between 'Rel. Reg' and 'Rel. Never' is 3.83732
+Clustering group-positions using GMM via EM ...
+cluster 1: Black, Unemp, Prison, Cohab
+cluster 2: Lib, Gay/Les, Rel. Never
+cluster 3: 2nd. Home, White, Rel. Reg, Cons
+cluster 4: Asian, Hispanic
+
+
+ Distances for Lib: 
+
+           lo      med       hi       lab1  lab2
+ 1: 0.8438569 1.437624 2.170916 Rel. Never   Lib
+ 2: 1.1204903 1.734552 2.615615    Gay/Les   Lib
+ 3: 1.3483572 1.900587 2.581705      Cohab   Lib
+ 4: 1.3143590 2.042944 2.910177      White   Lib
+ 5: 1.9975809 2.760951 3.747593     Prison   Lib
+ 6: 2.3733768 2.903265 3.510856      Unemp   Lib
+ 7: 2.1093573 2.975520 3.868954       Cons   Lib
+ 8: 2.3723803 3.189288 4.086165   Rel. Reg   Lib
+ 9: 2.6246264 3.283916 4.015197        Lib Black
+10: 2.5897042 3.555909 4.783275      Asian   Lib
+11: 4.0923035 5.143481 6.470605  2nd. Home   Lib
+12: 4.2873688 5.510131 6.695195   Hispanic   Lib
+
+
+ Distances for Cons: 
+
+           lo       med       hi lab1       lab2
+ 1: 0.1929277 0.6570199 1.378341 Cons   Rel. Reg
+ 2: 0.6693940 1.3481522 2.178621 Cons      White
+ 3: 1.7006500 2.6723054 3.926700 Cons  2nd. Home
+ 4: 2.0256077 2.8074459 3.871906 Cons      Asian
+ 5: 2.1093573 2.9755204 3.868954 Cons        Lib
+ 6: 2.4567629 3.2198505 4.143228 Cons      Unemp
+ 7: 2.1737043 3.3178061 4.613534 Cons    Gay/Les
+ 8: 2.8109891 3.6518780 4.586216 Cons      Cohab
+ 9: 2.6673140 3.7032671 4.689890 Cons Rel. Never
+10: 2.9560560 3.8287412 4.858665 Cons     Prison
+11: 3.7712602 4.7001906 5.731117 Cons      Black
+12: 4.0947406 5.1592764 6.362474 Cons   Hispanic
+
+
+ Distances for Rel. Never: 
+
+           lo      med       hi       lab1       lab2
+ 1: 0.8438569 1.437624 2.170916 Rel. Never        Lib
+ 2: 1.5859042 2.403405 3.407783 Rel. Never    Gay/Les
+ 3: 1.8725643 2.620338 3.525167 Rel. Never      White
+ 4: 2.1676195 2.940708 3.950891 Rel. Never      Cohab
+ 5: 2.6673140 3.703267 4.689890       Cons Rel. Never
+ 6: 2.8599999 3.837320 4.821184 Rel. Never   Rel. Reg
+ 7: 2.9229206 3.877109 5.173582 Rel. Never      Black
+ 8: 3.0328967 3.948985 5.109875 Rel. Never     Prison
+ 9: 3.1612761 4.134490 5.401118 Rel. Never      Asian
+10: 3.4159921 4.204992 5.094954 Rel. Never      Unemp
+11: 4.8569972 6.021622 7.416795 Rel. Never  2nd. Home
+12: 4.6090013 6.118913 7.608762 Rel. Never   Hispanic
+
+
+ Distances for White: 
+
+           lo      med       hi       lab1      lab2
+ 1: 0.6693940 1.348152 2.178621       Cons     White
+ 2: 0.7733355 1.377053 2.154028   Rel. Reg     White
+ 3: 1.3143590 2.042944 2.910177      White       Lib
+ 4: 1.3489675 2.231268 3.434677    Gay/Les     White
+ 5: 1.6030399 2.314850 3.358687      White     Asian
+ 6: 1.8725643 2.620338 3.525167 Rel. Never     White
+ 7: 2.1641268 2.891703 3.776013      Cohab     White
+ 8: 2.5739402 3.224522 3.968091      White     Unemp
+ 9: 2.6266569 3.423652 4.426312      White    Prison
+10: 2.7843417 3.806890 5.050990      White 2nd. Home
+11: 3.0578371 3.831636 4.775212      White     Black
+12: 3.8403564 4.763582 5.856567      White  Hispanic
+
+
+ Distances for Black: 
+
+          lo      med       hi       lab1  lab2
+ 1: 1.247704 1.808726 2.482863      Cohab Black
+ 2: 1.336543 1.924142 2.530027    Gay/Les Black
+ 3: 1.675420 2.266699 3.026091     Prison Black
+ 4: 2.387748 3.121672 4.065298      Asian Black
+ 5: 2.624626 3.283916 4.015197        Lib Black
+ 6: 2.147088 3.343139 4.411261   Hispanic Black
+ 7: 2.947123 3.475016 4.076194      Unemp Black
+ 8: 3.057837 3.831636 4.775212      White Black
+ 9: 2.922921 3.877109 5.173582 Rel. Never Black
+10: 3.771260 4.700191 5.731117       Cons Black
+11: 3.893399 4.783849 5.795812   Rel. Reg Black
+12: 5.523731 6.675474 7.955714  2nd. Home Black
+
+
+----------- Running 3-2_Analysis_Space.R...
+
+
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Creating 3d plot ...
+Variance explained by the first two dimensions for groups: 0.82259
+Variance explained by the first two dimensions for individuals: 0.91516
+Plotting the first two dimensions only ...
+Calculating overlap between individual groups ...
+Estimated Overlap ...
+Income (highest 30% vs. lowest 30%) : 0.61858
+Race (Black vs. White) : 0.39227
+Ideology (liberal vs. conservative) : 0.68081
+Religiosity (Regularly vs. Never/Rarely)0.7133
+
+Plotting respondents' distribution ...
+
+
+----------- Running 3-2_Analysis_Dvals.R...
+
+
+Pair with smallest D-value is Rel. Reg and Cons with a median value of 0.23587 and 95% posterior interval of (0.06133, 0.50047)
+Median of the posterior mean D-value across all groups is 1.10925
+Posterior median D-value for pair 2nd. Home and Rel. Never is 1.0578 with 95% posterior interval of (0.79433, 1.38582)
+Posterior median D-value for pair Lib and Cons is 0.86066 with 95% posterior interval of (0.65435, 1.07777)
+Posterior median D-value for pair Rel. Reg and Rel. Never is 0.90768 with 95% posterior interval of (0.69174, 1.15103)
+Posterior median D-value for pair White and Asian is 1.12239 with 95% posterior interval of (0.85366, 1.41369)
+Posterior median D-value for pair White and Black is 1.51735 with 95% posterior interval of (1.30301, 1.73403)
+Posterior median D-value for pair White and Hispanic is 1.64967 with 95% posterior interval of (1.35562, 1.92477)
+Posterior median D-value for pair Hispanic and Unemp is 1.51157 with 95% posterior interval of (1.29758, 1.73385)
+Posterior median D-value for pair Asian and Unemp is 1.50143 with 95% posterior interval of (1.2309, 1.76662)
+Saving D-vals plot (selected groups) ...
+Saving D-vals plot (all groups) ...
+Calculating D-vals using MADs instead of SDs ...
+Saving D-vals plot (selected groups) using MAD ...
+Saving D-vals plot (all groups) using MAD...
+
+
+---- Session Info ----
+R version 4.1.0 (2021-05-18)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] plotly_4.9.4.1       mclust_5.4.7         rstan_2.21.2        
+[4] ggplot2_3.3.3        StanHeaders_2.21.0-7 data.table_1.14.0   
+[7] here_1.0.1          
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.1.1   purrr_0.3.4        reshape2_1.4.4     V8_3.4.2          
+ [5] colorspace_2.0-1   vctrs_0.3.8        generics_0.1.0     viridisLite_0.4.0 
+ [9] htmltools_0.5.1.1  stats4_4.1.0       loo_2.4.1          utf8_1.2.2        
+[13] rlang_0.4.11       pkgbuild_1.2.0     isoband_0.2.4      pillar_1.6.2      
+[17] glue_1.4.2         withr_2.4.2        DBI_1.1.1          matrixStats_0.60.1
+[21] lifecycle_1.0.0    plyr_1.8.6         stringr_1.4.0      munsell_0.5.0     
+[25] gtable_0.3.0       htmlwidgets_1.5.3  codetools_0.2-18   labeling_0.4.2    
+[29] inline_0.3.19      callr_3.7.0        crosstalk_1.1.1    ps_1.6.0          
+[33] curl_4.3.1         parallel_4.1.0     fansi_0.5.0        Rcpp_1.0.7        
+[37] scales_1.1.1       RcppParallel_5.1.4 jsonlite_1.7.2     farver_2.1.0      
+[41] gridExtra_2.3      digest_0.6.27      stringi_1.6.2      processx_3.5.2    
+[45] dplyr_1.0.7        grid_4.1.0         rprojroot_2.0.2    cli_3.0.1         
+[49] tools_4.1.0        magrittr_2.0.1     lazyeval_0.2.2     tibble_3.1.3      
+[53] tidyr_1.1.3        crayon_1.4.1       pkgconfig_2.0.3    MASS_7.3-54       
+[57] ellipsis_0.3.2     prettyunits_1.1.1  httr_1.4.2         rstudioapi_0.13   
+[61] R6_2.5.0           compiler_4.1.0    

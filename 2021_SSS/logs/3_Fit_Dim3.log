@@ -1,0 +1,446 @@
+running
+  '/usr/local/lib/R/bin/R --no-echo --no-restore --vanilla --file=3_Fit_Dim3.R'
+
+here() starts at /scratch/bp1094/space
+This is cmdstanr version 0.4.0
+- Online documentation and vignettes at mc-stan.org/cmdstanr
+- Use set_cmdstan_path() to set the path to CmdStan
+- Use install_cmdstan() to install CmdStan
+Loading required package: StanHeaders
+Loading required package: ggplot2
+rstan (Version 2.21.2, GitRev: 2e1f913d3ca3)
+For execution on a local, multicore CPU with excess RAM we recommend calling
+options(mc.cores = parallel::detectCores()).
+To avoid recompilation of unchanged Stan programs, we recommend calling
+rstan_options(auto_write = TRUE)
+This is loo version 2.4.1
+- Online documentation and vignettes at mc-stan.org/loo
+- As of v2.0.0 loo defaults to 1 core but we recommend using as many as possible. Use the 'cores' argument or set options(mc.cores = NUM_CORES) for an entire session. 
+
+Attaching package: 'loo'
+
+The following object is masked from 'package:rstan':
+
+    loo
+
+CmdStan path set to: /scratch/bp1094/space/cmdstan/cmdstan-2.27.0
+Removing 7 isolates ...
+Dropping respondents with less than 7 valid responses ..
+No. of obs. of original dataset : 672
+No. of obs. who are isolates : 7
+No. of obs. with response < 7 : 10
+No. of dropped obs. : 17
+No. of obs. used in analysis : 655
+
+Changing order of variables .. 
+New column order is now : 
+acqblack, acqlib, acqunemp, acqprisn, acqhome, acqasian, acqhisp, acqwhite, acqgay, acqcohab, acqgoatt, acqnoatt, acqcon
+
+Generating data for STAN ...
+
+No. of Respondents : 655
+No. of Items : 13
+No. of Item-responses : 8069
+
+Prior means and std. dev. for groups
+      labs       prop    sds    
+ [1,] "acqblack" "0.122" "0.010"
+ [2,] "acqlib"   "0.088" "0.019"
+ [3,] "acqunemp" "0.050" "0.010"
+ [4,] "acqprisn" "0.010" "0.005"
+ [5,] "acqhome"  "0.061" "0.010"
+ [6,] "acqasian" "0.043" "0.010"
+ [7,] "acqhisp"  "0.148" "0.010"
+ [8,] "acqwhite" "0.662" "0.010"
+ [9,] "acqgay"   "0.014" "0.020"
+[10,] "acqcohab" "0.011" "0.010"
+[11,] "acqgoatt" "0.311" "0.020"
+[12,] "acqnoatt" "0.422" "0.020"
+[13,] "acqcon"   "0.116" "0.027"
+
+
+Start fitting Stan model ...
+Fitting 3 dimensions ...
+
+
+Compiling model ...
+Warning in '/state/partition1/job-9667760/RtmppxQkAg/model-2bec9317950988.stan', line 174, column 25: The variable partial_sum may not have been assigned a value before its use.
+
+Model Code :
+
+file name : social_space.stan
+functions {
+
+    real partial_sum(
+        int[] y_slice,
+        int start,
+        int end,
+        int[] ii,
+        int[] jj,
+        real alpha,
+        vector gamma,
+        vector d,
+        real[] p,
+        real phi
+    ) {
+  
+        // index
+        int len = end - start + 1;
+        int ii_slice[len] = ii[start:end];
+        int jj_slice[len] = jj[start:end];
+        vector[len] d_slice = d[start:end];
+        
+        // accumulator
+        real psum = 0.0;
+        
+        for (n in 1:len) {
+        
+            real mu = exp(alpha + gamma[ii_slice[n]] + log(p[jj_slice[n]]) - d_slice[n]);
+
+            if (y_slice[n] == 0)
+                psum += neg_binomial_2_lpmf(0 | mu, phi);
+            else if (y_slice[n] == 1)
+                psum += neg_binomial_2_lpmf(1 | mu, phi);
+            else if (y_slice[n] == 2)
+                psum += log_diff_exp(neg_binomial_2_lcdf(5 | mu, phi), 
+                                     neg_binomial_2_lcdf(1 | mu, phi));
+            else if (y_slice[n] == 3)
+                psum += log_diff_exp(neg_binomial_2_lcdf(10 | mu, phi), 
+                                     neg_binomial_2_lcdf(5 | mu, phi));
+            else
+                psum += neg_binomial_2_lccdf(10 | mu, phi);
+          
+        }
+  
+        return psum;
+        
+    }
+
+}
+
+data {
+  
+    int<lower=0> N;                 // No. of item-responses
+    int<lower=0> I;                 // No. of Individuals.
+    int<lower=0> J;                 // No. Items.
+    int<lower=1> D;                 // No. of fitted Dimensions.
+    int<lower=0> ii[N];             // individual identifiers
+    int<lower=0> jj[N];             // item identifiers
+    int<lower=0> y[N];              // responses
+    real<lower=0, upper=1> pops[J]; // group offset
+    real<lower=0> sds[J];           // std. dev. of priors
+  
+}
+
+transformed data {
+    
+    // let stan automatically choose grainsize
+    int grainsize = 1;
+
+}
+
+parameters {
+  
+    // Population parameters
+    real<lower=0, upper=1> p[J]; 
+    
+    // Gregariousness parameters
+    real alpha;                
+    vector[I] gamma_star;      
+    real<lower=0> sigma_gamma; 
+    
+    // Group positions
+    vector[D] pos_j_star[J-D-1];  
+    vector<lower=0>[D] const_j;
+    
+    // Individual positions
+    cholesky_factor_corr[D] L_Rho_i; 
+    vector[D] pos_i_star[I];
+    
+    // overdispersion 
+    real<lower=0> phi;
+  
+}
+
+transformed parameters {
+  
+    vector[I] gamma;
+    vector[D] pos_j[J];
+    vector[D] pos_i[I];
+    vector[N] d;
+    
+    gamma = gamma_star * sigma_gamma;
+    
+    // fixed stimuli
+    for (d1 in 1:D) {
+        for (d2 in 1:D) {
+            if (d1==d2) {
+                pos_j[d1, d2] = const_j[d1];
+            } else {
+                pos_j[d1, d2] = 0;
+            }
+        }
+    }
+    
+    // position for rest (mean fixed at 0)
+    {
+        vector[D] cum_sum;
+      
+        cum_sum = rep_vector(0,D);
+      
+        for (cc in 1:D)
+            cum_sum = cum_sum + pos_j[cc];
+      
+        for (cc in (D+1):(J-1)) {
+            pos_j[cc] = 5 * pos_j_star[cc-D];
+            cum_sum = cum_sum + pos_j[cc];
+        }
+      
+        pos_j[J] = -cum_sum;
+      
+    }
+  
+    // individual positions
+    for (i in 1:I)
+        pos_i[i] = L_Rho_i * pos_i_star[i];
+  
+    // distances
+    {
+        
+        vector[N] d_star;
+        for (nn in 1:N) 
+            d_star[nn] = log(squared_distance(pos_i[ii[nn]], pos_j[jj[nn]]));
+        d = d_star - mean(d_star);
+        
+    }
+  
+}
+
+model {
+  
+    // population estimates priors
+    for (j in 1:J) 
+        p[j] ~ normal(pops[j],sds[j]);
+  
+    // gregariousness priors
+    alpha ~ normal(0, 5);
+    gamma_star ~ normal(0, 1);
+    sigma_gamma ~ normal(0, 3);
+  
+    // group position priors
+    for (j in 1:(J-D-1)) 
+        pos_j_star[j] ~ normal(0, 1);
+    const_j ~ gamma(2, .1);
+  
+    // individual position prior
+    for (i in 1:I)
+       pos_i_star[i] ~ normal(0, 1);
+    L_Rho_i ~ lkj_corr_cholesky(2);
+  
+    // overdispersion
+    phi ~ normal(0, 3);
+  
+    // log-likelihood
+    target += reduce_sum(partial_sum, y, grainsize, ii, jj, alpha, gamma, d, p, phi);
+    
+}
+
+generated quantities {
+  
+  real log_lik[N];
+  corr_matrix[D] Rho_i;
+  
+  // log-likelihood
+  for (i in 1:N) {
+
+    real mu;
+    mu = exp(alpha + gamma[ii[i]] + log(p[jj[i]]) - d[i]);
+
+    if (y[i] == 0)
+        log_lik[i] = neg_binomial_2_lpmf(0 | mu, phi);
+    else if (y[i] == 1)
+       log_lik[i] = neg_binomial_2_lpmf(1 | mu, phi);
+    else if (y[i] == 2)
+        log_lik[i] = log_diff_exp(neg_binomial_2_lcdf(5 | mu, phi), 
+                                  neg_binomial_2_lcdf(1|mu, phi));
+    else if (y[i] == 3)
+       log_lik[i] = log_diff_exp(neg_binomial_2_lcdf(10 | mu, phi), 
+                                 neg_binomial_2_lcdf(5 | mu, phi));
+    else
+        log_lik[i] = neg_binomial_2_lccdf(10 | mu, phi);
+  }
+  
+  Rho_i = multiply_lower_tri_self_transpose(L_Rho_i);
+  
+}
+
+Running MCMC with 2 parallel chains, with 12 thread(s) per chain...
+
+Chain 1 Rejecting initial value:
+Chain 1   Log probability evaluates to log(0), i.e. negative infinity.
+Chain 1   Stan can't start sampling from this initial value.
+Chain 1 Rejecting initial value:
+Chain 1   Log probability evaluates to log(0), i.e. negative infinity.
+Chain 1   Stan can't start sampling from this initial value.
+Chain 1 Rejecting initial value:
+Chain 1   Log probability evaluates to log(0), i.e. negative infinity.
+Chain 1   Stan can't start sampling from this initial value.
+Chain 1 Iteration:    1 / 7000 [  0%]  (Warmup) 
+Chain 2 Iteration:    1 / 7000 [  0%]  (Warmup) 
+Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 1 Exception: Exception: neg_binomial_2_lccdf: Location parameter is inf, but must be positive finite! (in '/state/partition1/job-9667760/RtmppxQkAg/model-2bec9317950988.stan', line 41, column 16 to column 59) (in '/state/partition1/job-9667760/RtmppxQkAg/model-2bec9317950988.stan', line 174, column 4 to column 85)
+Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 1 
+Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 2 Exception: Exception: neg_binomial_2_lccdf: Location parameter is inf, but must be positive finite! (in '/state/partition1/job-9667760/RtmppxQkAg/model-2bec9317950988.stan', line 41, column 16 to column 59) (in '/state/partition1/job-9667760/RtmppxQkAg/model-2bec9317950988.stan', line 174, column 4 to column 85)
+Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 2 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 2 
+Chain 2 Iteration: 1000 / 7000 [ 14%]  (Warmup) 
+Chain 1 Iteration: 1000 / 7000 [ 14%]  (Warmup) 
+Chain 1 Iteration: 2000 / 7000 [ 28%]  (Warmup) 
+Chain 2 Iteration: 2000 / 7000 [ 28%]  (Warmup) 
+Chain 1 Iteration: 3000 / 7000 [ 42%]  (Warmup) 
+Chain 1 Iteration: 3001 / 7000 [ 42%]  (Sampling) 
+Chain 2 Iteration: 3000 / 7000 [ 42%]  (Warmup) 
+Chain 2 Iteration: 3001 / 7000 [ 42%]  (Sampling) 
+Chain 1 Iteration: 4000 / 7000 [ 57%]  (Sampling) 
+Chain 2 Iteration: 4000 / 7000 [ 57%]  (Sampling) 
+Chain 1 Iteration: 5000 / 7000 [ 71%]  (Sampling) 
+Chain 2 Iteration: 5000 / 7000 [ 71%]  (Sampling) 
+Chain 1 Iteration: 6000 / 7000 [ 85%]  (Sampling) 
+Chain 2 Iteration: 6000 / 7000 [ 85%]  (Sampling) 
+Chain 1 Iteration: 7000 / 7000 [100%]  (Sampling) 
+Chain 1 finished in 14959.7 seconds.
+Chain 2 Iteration: 7000 / 7000 [100%]  (Sampling) 
+Chain 2 finished in 16113.1 seconds.
+
+Both chains finished successfully.
+Mean chain execution time: 15536.4 seconds.
+Total execution time: 16113.5 seconds.
+Processing csv files: /state/partition1/job-9667760/RtmppxQkAg/social_space-202108312157-1-2e2f57.csv, /state/partition1/job-9667760/RtmppxQkAg/social_space-202108312157-2-2e2f57.csv
+
+Checking sampler transitions treedepth.
+Treedepth satisfactory for all transitions.
+
+Checking sampler transitions for divergences.
+No divergent transitions found.
+
+Checking E-BFMI - sampler transitions HMC potential energy.
+E-BFMI satisfactory.
+
+Effective sample size satisfactory.
+
+Split R-hat values satisfactory all parameters.
+
+Processing complete, no problems detected.
+Saving results ...
+divergence (per chain)
+Creating traceplots for Rho_i ...
+Creating traceplots for alpha ...
+Creating traceplots for d ...
+As total number of parameters in d exceeds 30, sampling 30 parameters for convergence checking ...
+Creating traceplots for gamma ...
+As total number of parameters in gamma exceeds 30, sampling 30 parameters for convergence checking ...
+Creating traceplots for log_lik ...
+As total number of parameters in log_lik exceeds 30, sampling 30 parameters for convergence checking ...
+Creating traceplots for lp__ ...
+Creating traceplots for p ...
+Creating traceplots for phi ...
+Creating traceplots for pos_i ...
+As total number of parameters in pos_i exceeds 30, sampling 30 parameters for convergence checking  (for each dimension) ...
+Creating traceplots for pos_j ...
+As total number of parameters in pos_j exceeds 30, sampling 13 parameters for convergence checking  (for each dimension) ...
+Creating traceplots for sigma_gamma ...
+This is bayesplot version 1.8.1
+- Online documentation and vignettes at mc-stan.org/bayesplot
+- bayesplot theme set to bayesplot::theme_default()
+   * Does _not_ affect other ggplot2 plots
+   * See ?bayesplot_theme_set for details on theme setting
+Plotting Diagnostic plots ... 
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+WAIC and LOO
+
+Computed from 8000 by 8069 log-likelihood matrix
+
+          Estimate    SE
+elpd_waic  -9414.0  66.5
+p_waic      1267.0  22.9
+waic       18828.1 132.9
+
+621 (7.7%) p_waic estimates greater than 0.4. We recommend trying loo instead. 
+
+Computed from 8000 by 8069 log-likelihood matrix
+
+         Estimate    SE
+elpd_loo  -9532.2  69.0
+p_loo      1385.1  28.1
+looic     19064.4 138.0
+------
+Monte Carlo SE of elpd_loo is NA.
+
+Pareto k diagnostic values:
+                         Count Pct.    Min. n_eff
+(-Inf, 0.5]   (good)     7359  91.2%   629       
+ (0.5, 0.7]   (ok)        590   7.3%   144       
+   (0.7, 1]   (bad)        94   1.2%   18        
+   (1, Inf)   (very bad)   26   0.3%   4         
+See help('pareto-k-diagnostic') for details.
+Warning messages:
+1: Dropped 13 NAs from 'new_rhat(rhat)'. 
+2: Dropped 13 NAs from 'new_neff_ratio(ratio)'. 
+3: 
+621 (7.7%) p_waic estimates greater than 0.4. We recommend trying loo instead. 
+4: Relative effective sample sizes ('r_eff' argument) not specified.
+For models fit with MCMC, the reported PSIS effective sample sizes and 
+MCSE estimates will be over-optimistic. 
+5: Some Pareto k diagnostic values are too high. See help('pareto-k-diagnostic') for details.
+ 
+
+
+---- Session Info ----
+R version 4.1.0 (2021-05-18)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 20.04.1 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+
+locale:
+[1] C
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] bayesplot_1.8.1      loo_2.4.1            rstan_2.21.2        
+[4] ggplot2_3.3.5        StanHeaders_2.21.0-7 cmdstanr_0.4.0      
+[7] data.table_1.14.0    here_1.0.1          
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.1.1     xfun_0.24            reshape2_1.4.4      
+ [4] purrr_0.3.4          V8_3.4.2             colorspace_2.0-2    
+ [7] vctrs_0.3.8          generics_0.1.0       stats4_4.1.0        
+[10] utf8_1.2.1           rlang_0.4.11         pkgbuild_1.2.0      
+[13] pillar_1.6.1         glue_1.4.2           withr_2.4.2         
+[16] DBI_1.1.1            distributional_0.2.2 plyr_1.8.6          
+[19] matrixStats_0.59.0   lifecycle_1.0.0      stringr_1.4.0       
+[22] posterior_1.0.1      munsell_0.5.0        gtable_0.3.0        
+[25] codetools_0.2-18     labeling_0.4.2       inline_0.3.19       
+[28] knitr_1.33           callr_3.7.0          ps_1.6.0            
+[31] curl_4.3.2           parallel_4.1.0       fansi_0.5.0         
+[34] Rcpp_1.0.6           scales_1.1.1         backports_1.2.1     
+[37] checkmate_2.0.0      RcppParallel_5.1.4   jsonlite_1.7.2      
+[40] abind_1.4-5          farver_2.1.0         gridExtra_2.3       
+[43] tensorA_0.36.2       digest_0.6.27        stringi_1.6.2       
+[46] processx_3.5.2       dplyr_1.0.7          grid_4.1.0          
+[49] rprojroot_2.0.2      cli_3.0.0            tools_4.1.0         
+[52] magrittr_2.0.1       tibble_3.1.2         crayon_1.4.1        
+[55] pkgconfig_2.0.3      ellipsis_0.3.2       prettyunits_1.1.1   
+[58] ggridges_0.5.3       assertthat_0.2.1     R6_2.5.0            
+[61] compiler_4.1.0      
