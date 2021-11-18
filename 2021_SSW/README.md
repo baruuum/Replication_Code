@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Replication Code for “Paper Title”
+# Replication Code for "Still a Small World? University Course Enrollment Networks before and during the COVID-19 Pandemic"
 
 -   Creator: Barum Park
 
