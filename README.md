@@ -13,5 +13,5 @@ All codes in this repository is licenced under MIT licence. For details, see the
 
 - 2021
   1. **2021\_SSW**: Weeden, Kim A, Benjamin Cornwell, Barum Park. 2021. "Still a Small World? University Course Enrollment Networks before and during the COVID-19 Pandemic" *Sociological Science* 8: 73-82.
-  2. **2021\_FNB**: Cheng, Siwei\* and Barum Park\*. 2021. "Flows and Boundaries: A Network Approach for Understanding Mobility in the Labor Market," *American Journal of Sociology* 126(3): 577-631.
+  2. **2021\_FNB**: Cheng, Siwei\* and Barum Park\*. 2020. "Flows and Boundaries: A Network Approach for Understanding Mobility in the Labor Market," *American Journal of Sociology* 126(3): 577-631.
   3. **2021\_SS**: Park, Barum. 2021. "Segregated in Social Space: The Spatial Structure of Acquaintanceship Networks," forthcoming in *Sociological Science*
