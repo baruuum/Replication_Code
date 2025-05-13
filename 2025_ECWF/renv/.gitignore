@@ -1,0 +1,9 @@
+local/
+library/
+cellar/
+lock/
+python/
+sandbox/
+staging/
+
+R-*/

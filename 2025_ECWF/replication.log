@@ -1,0 +1,48 @@
+Initializing renv environment ...
+# Bootstrapping renv 1.0.7 ---------------------------------------------------
+- Downloading renv ... OK
+- Installing renv  ... OK
+
+- Project '~/projects/mobmeth' loaded. [renv 1.0.7]
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+> if (!require("renv")) install.packages("renv", repos = "cran.rstudio.com")
+Loading required package: renv
+
+Attaching package: ‘renv’
+
+The following objects are masked from ‘package:stats’:
+
+    embed, update
+
+The following objects are masked from ‘package:utils’:
+
+    history, upgrade
+
+The following objects are masked from ‘package:base’:
+
+    autoload, load, remove, use
+
+> 
+> 
+- Project '~/projects/mobmeth' loaded. [renv 1.0.7]
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+> renv::init(bare = TRUE); renv::settings[["use.cache"]](FALSE)
+- Project '~/projects/mobmeth' loaded. [renv 1.0.7]
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+> 
+> 
+Moving sbmob package into renv/local ...
+Installing necessary R packages ...
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+Done on Wed Jul 10 15:10:29 UTC 2024
+Running conda version: conda 24.5.0
+Running snakemake version: 8.14.0
+Start running replication code ...
+Run on Wed Jul 10 15:10:29 UTC 2024
+Running replication ...
+Compressing Snakemake log file ...
+Done on Thu Jul 11 04:27:31 UTC 2024

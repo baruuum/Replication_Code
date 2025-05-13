@@ -1,0 +1,43 @@
+# directories
+paths: 
+  res_dir:
+  sim_dir:
+  fit_dir :
+  log_dir:
+  plot_dir:
+  table_dir:
+
+# seeds
+seed_examples: 984601
+seed_breiger: 637335
+seed_breiger_community: 543123
+seed_goodman: 354894
+seed_goodman_community: 186462
+seed_sim: 792554
+
+# sim pars
+sim_n_run: 25
+sim_n_refit: 20
+sim_image: ["symm", "cycl", "hier"]
+sim_sample_sizes: [50, 100, 500]
+sim_block_sizes: [2, 3, 5]
+sim_beta: [1, 2, 3]
+sim_alpha: [1, .75, .5]
+sim_block10: true
+
+# Breiger analysis pars
+breiger_max_blocks: 8
+breiger_n_refit: 30
+
+# Goodman analysis pars
+goodman_max_blocks: 6
+goodman_n_refit: 30
+
+# joint Breiger & Goodman
+test_clust_algs: [
+  "cluster_infomap",
+  "cluster_walktrap",
+  "cluster_edge_betweenness",
+  "cluster_louvain",
+  "cluster_leiden"
+]

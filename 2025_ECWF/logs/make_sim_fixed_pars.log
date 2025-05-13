@@ -1,0 +1,34 @@
+INFO [2025-01-16 13:19:48] Creating simulation design ...
+INFO [2025-01-16 13:19:48] Saving fixed params ...
+INFO [2025-01-16 13:19:48] Creating random seeds for simulation ...
+INFO [2025-01-16 13:19:48] Saving seeds ...
+
+
+Session Information --------------
+
+R version 4.4.1 (2024-06-14)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 20.04.6 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/liblapack.so.3;  LAPACK version 3.9.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+ [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+ [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+
+time zone: US/Eastern
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] data.table_1.15.4
+
+loaded via a namespace (and not attached):
+[1] import_1.3.2   compiler_4.4.1 logger_0.3.0   tools_4.4.1    glue_1.7.0    
+[6] renv_1.0.7    
